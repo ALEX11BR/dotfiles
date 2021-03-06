@@ -1,0 +1,10 @@
+awesome
+blueman
+lightdm-gtk-greeter-settings
+lxappearance
+maim
+network-manager-applet
+papirus-icon-theme
+picom
+termite
+udiskie

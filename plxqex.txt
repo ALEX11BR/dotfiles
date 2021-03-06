@@ -1,0 +1,9 @@
+blueman
+breeze
+breeze-gtk
+breeze-icons
+gvfs-mtp
+lxqt
+network-manager-applet
+pamac-aur
+sddm

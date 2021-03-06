@@ -1,0 +1,110 @@
+#!/bin/bash
+cd $(dirname $(readlink -f "$0") )
+capps=()
+ffamilies=""
+psed=""
+nvimin=""
+picomc=""
+qgset=""
+terml=""
+viml="/etc/vimrc"
+xprofin=""
+zshc="/etc/zsh/zshrc"
+zshs=""
+
+while [ "$1" != "" ]; do
+	case "$1" in 
+		-c) # add folder to copy to .config
+			capps+=("$2")
+			shift
+			;;
+		-f) # set custom name for fontconfig families file
+			ffamilies="$2"
+			shift
+			;;
+		-n) # use neovim instead of vim
+			nvimin="yes"
+			;;
+		-pc) # copy picom config
+		    picomc="yes"
+			;;
+		-ps) # sed on polkit nopasswd file 
+			psed="$2"
+			shift
+			;;
+		-qg) # set gtk2 qt style
+			qgset="yes"
+			;;
+		-t) # set TERMINAL
+			terml="$2"
+			shift
+			;;
+		-v) # location of vimrc
+			viml="$2"
+			shift
+			;;
+		-xp) # copy xprofile file
+		   	xprofin="yes"
+			;;
+		-z) # location of zshrc (full path + filename 'zshrc')
+			zshc="$2"
+			shift
+			;;
+		-zs) # sed on zshrc
+			zshs="$2"
+			shift
+			;;
+	esac
+	shift
+done
+
+sudo chsh -s /bin/zsh $(whoami)
+sudo chsh -s /bin/zsh
+cat >> ~/.zshrc <<'EOL'
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+EOL
+echo 'export GOPATH=~/Documents/go' >> ~/.profile
+if [ "$zshs" != "" ]; then
+	sed "$zshs" zshrc | sudo tee "$zshc" >/dev/null
+else
+	sudo cp zshrc "$zshc"
+fi
+if [ "$qgset" != "" ]; then
+	echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment >/dev/null
+fi
+if [ "$terml" != "" ]; then
+	echo "TERMINAL=$terml" | sudo tee -a /etc/environment >/dev/null
+fi
+git config --global user.name "Popa Ioan Alexandru"
+git config --global user.email "alexioanpopa11@gmail.com"
+
+sudo mkdir -p /etc/X11/xorg.conf.d/
+sudo mkdir -p /etc/polkit-1/rules.d/
+cat vimrc | sudo tee -a "$viml" >/dev/null
+sudo cp -r iosevka-custom /usr/share/fonts
+sudo cp 00-keyboard.conf /etc/X11/xorg.conf.d/
+sudo cp 30-touchpad.conf /etc/X11/xorg.conf.d/
+sudo cp 50-families.conf "/etc/fonts/conf.d/$ffamilies"
+
+if [ "$psed" != "" ]; then
+	sed "$psed" 49-nopasswd_global.rules | sudo tee /etc/polkit-1/rules.d/49-nopasswd_global.rules >/dev/null
+else
+	sudo cp 49-nopasswd_global.rules /etc/polkit-1/rules.d/
+fi
+if [ "$nvimin" != "" ]; then
+	sudo mkdir -p /etc/xdg/nvim/
+	echo "source $viml"| sudo tee -a /etc/xdg/nvim/sysinit.vim
+	echo "alias vim='nvim'" | sudo tee -a "$zshc" >/dev/null
+fi
+if [ "$picomc" != "" ]; then
+	sudo install -Dm644 picom.conf /etc/xdg/picom.conf
+fi
+if [ "$xprofin" != "" ]; then
+	sudo cp xprofile /etc
+fi
+mkdir "$HOME/.config"
+for capp in "${capps[@]}"; do
+	cp -r "$capp" "$HOME/.config"
+done

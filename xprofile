@@ -1,0 +1,10 @@
+#!/bin/sh
+
+udiskie --smart-tray &
+parcellite &
+nm-applet &
+numlockx on &
+blueman-tray &
+pamac-tray &
+picom &
+/usr/lib/notification-daemon-1.0/notification-daemon &

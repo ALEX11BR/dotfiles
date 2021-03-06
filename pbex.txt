@@ -1,0 +1,14 @@
+blueman
+bspwm
+feh
+lightdm-gtk-greeter-settings
+lxappearance
+maim
+network-manager-applet
+notification-daemon
+picom
+rofi
+sxhkd
+termite
+thunar
+udiskie

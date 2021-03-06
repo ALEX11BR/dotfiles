@@ -1,0 +1,9 @@
+alacarte
+blueberry
+gvfs-mtp
+lightdm-gtk-greeter-settings
+mate
+mate-extra
+mate-menu
+mate-tweak
+pamac-aur

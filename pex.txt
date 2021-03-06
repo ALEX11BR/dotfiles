@@ -1,0 +1,14 @@
+android-studio
+arduino
+audacity
+fcgi
+intellij-idea-community-edition
+openttd
+python-gdal
+python-jinja
+python-owslib
+python-psycopg2
+python-pygments
+python-requests
+python-yaml
+qgis
