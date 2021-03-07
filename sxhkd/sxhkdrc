@@ -26,15 +26,14 @@ Print
 
 # volume +
 XF86AudioRaiseVolume
-	amixer set Master 5%+
+	pactl -- set-sink-volume 0 +5%
 
 # volume -
 XF86AudioLowerVolume
-	amixer set Master 5%-
-
+	pactl -- set-sink-volume 0 -5%
 # mute
 XF86AudioMute
-	amixer -D pulse set Master 1+ toggle
+	pactl set-sink-mute 0 toggle
 
 # play button
 XF86AudioPlay

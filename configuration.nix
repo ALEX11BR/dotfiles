@@ -81,7 +81,7 @@ in
     gcc
     starship # zsh-powerlevel10k
     nvidia-offload
-    rofi gmrun termite neofetch maim networkmanagerapplet numlockx xorg.xbacklight
+    rofi gmrun termite neofetch maim networkmanagerapplet numlockx acpilight
     gnome3.gnome-calculator
     polybar
     xfce.thunar xfce.thunar-volman xfce.xfconf xfce.tumbler xfce.thunar-archive-plugin gnome3.file-roller

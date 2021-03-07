@@ -1,3 +1,4 @@
+acpilight
 awesome
 blueman
 lightdm-gtk-greeter-settings
