@@ -10,7 +10,8 @@ sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt-get update
 sudo apt-get install code
+rm packages.microsoft.gpg
 
-sudo apt-get install neovim fonts-noto vlc libdvdcss2 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav
+sudo apt-get install zsh zsh-autosuggestions zsh-syntax-highlighting git neovim fonts-noto vlc libdvdcss2 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav
 
 bash cpconf -v "/etc/vim/vimrc.local" -ps "s/wheel/sudo/g" -zs "s;/zsh/plugins;;" -n -f "50-families.conf"
