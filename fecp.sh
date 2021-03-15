@@ -18,6 +18,7 @@ sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda vdpauinfo libva-vdpau-
 sudo dnf install -y google-noto-\* vlc gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav lame\* libdvdcss
 sudo dnf install -y zsh zsh-syntax-highlighting zsh-autosuggestions
 sudo dnf install -y network-manager-applet neovim git
+sudo dnf install -y alacritty
 echo "max_parallel_downloads=10" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
-bash cpconf -v "/etc/vimrc.local" -f "50-families.conf" -xp -n -z "/etc/zshrc" -zs "s;/zsh/plugins;;" -c i3 -c alacritty -c awesome -c qtile -c bspwm -c sxhkd -c termite -c polybar
-
+echo "fastestmirror=1" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
+bash cpconf -v "/etc/vimrc.local" -f "50-families.conf" -xp -n -z "/etc/zshrc" -zs "s;/zsh/plugins;;" -c i3 -c alacritty -c awesome -c qtile -c bspwm -c sxhkd -c termite -c polybar -t alacritty
