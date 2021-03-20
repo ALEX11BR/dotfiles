@@ -30,19 +30,47 @@ from libqtile import layout, bar, widget
 
 from typing import List  # noqa: F401
 
+import os
+
 mod = "mod4"
 
 keys = [
-    # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.down()),
-    Key([mod], "j", lazy.layout.up()),
-
-    # Move windows up or down in current stack
-    Key([mod, "control"], "k", lazy.layout.shuffle_down()),
-    Key([mod, "control"], "j", lazy.layout.shuffle_up()),
+    Key([mod], "h", lazy.layout.left()),
+    Key([mod], "Left", lazy.layout.left()),
+    Key([mod], "j", lazy.layout.down()),
+    Key([mod], "Down", lazy.layout.down()),
+    Key([mod], "k", lazy.layout.up()),
+    Key([mod], "Up", lazy.layout.up()),
+    Key([mod], "l", lazy.layout.right()),
+    Key([mod], "Right", lazy.layout.right()),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
+    Key([mod, "shift"], "Left", lazy.layout.shuffle_left()),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
+    Key([mod, "shift"], "Right", lazy.layout.shuffle_right()),
+    Key([mod, "mod1"], "h", lazy.layout.flip_left()),
+    Key([mod, "mod1"], "Left", lazy.layout.flip_left()),
+    Key([mod, "mod1"], "j", lazy.layout.flip_down()),
+    Key([mod, "mod1"], "Down", lazy.layout.flip_down()),
+    Key([mod, "mod1"], "k", lazy.layout.flip_up()),
+    Key([mod, "mod1"], "Up", lazy.layout.flip_up()),
+    Key([mod, "mod1"], "l", lazy.layout.flip_right()),
+    Key([mod, "mod1"], "Right", lazy.layout.flip_right()),
+    Key([mod, "control"], "h", lazy.layout.grow_left()),
+    Key([mod, "control"], "Left", lazy.layout.grow_left()),
+    Key([mod, "control"], "j", lazy.layout.grow_down()),
+    Key([mod, "control"], "Down", lazy.layout.grow_down()),
+    Key([mod, "control"], "k", lazy.layout.grow_up()),
+    Key([mod, "control"], "Up", lazy.layout.grow_up()),
+    Key([mod, "control"], "l", lazy.layout.grow_right()),
+    Key([mod, "control"], "Right", lazy.layout.grow_right()),
+    Key([mod, "shift"], "n", lazy.layout.normalize()),
 
     # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.layout.next()),
+    Key([mod], "Tab", lazy.layout.next()),
 
     # Swap panes of split stack
     Key([mod, "shift"], "space", lazy.layout.rotate()),
@@ -52,11 +80,11 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
-    Key([mod], "Return", lazy.spawn("alacritty")),
+    Key([mod], "Return", lazy.spawn(os.environ['TERMINAL'] or "termite")),
 
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout()),
-    Key([mod], "w", lazy.window.kill()),
+    Key([mod], "space", lazy.next_layout()),
+    Key([mod], "q", lazy.window.kill()),
 
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "control"], "q", lazy.shutdown()),
@@ -81,7 +109,7 @@ layouts = [
     # layout.Max(),
     # layout.Stack(num_stacks=2),
     # Try more layouts by unleashing below layouts.
-    # layout.Bsp(),
+    layout.Bsp(),
     layout.Columns(),
     # layout.Matrix(),
     # layout.MonadTall(),
@@ -106,12 +134,14 @@ screens = [
             [
                 # widget.CurrentLayout(),
                 widget.GroupBox(inactive='999999'),
+                widget.CurrentLayout(),
                 widget.Prompt(),
                 # widget.WindowName(),
                 widget.Spacer(),
                 # widget.TextBox("default config", name="default"),
                 # widget.Backlight(foreground='ffffaa'),
                 # widget.Volume(foreground='ffbb00'),
+                widget.Battery(format='Baterie: {percent:2.0%} {char}',foreground='ffdd00'),
                 widget.Memory(format='RAM: {MemUsed}MB',foreground='66ff66'),
                 widget.CPU(format='CPU: {load_percent}%',foreground='bb88ff'),
                 widget.CapsNumLockIndicator(update_interval=0.06),
