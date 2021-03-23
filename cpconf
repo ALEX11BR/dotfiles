@@ -1,6 +1,7 @@
 #!/bin/bash
 cd $(dirname $(readlink -f "$0") )
 capps=()
+cthemes=()
 ffamilies=""
 psed=""
 nvimin=""
@@ -18,6 +19,10 @@ while [ "$1" != "" ]; do
 			capps+=("$2")
 			shift
 			;;
+		-ct) # add theme to copy
+			cthemes+=("$2")
+			shift
+			;;
 		-f) # set custom name for fontconfig families file
 			ffamilies="$2"
 			shift
@@ -26,7 +31,7 @@ while [ "$1" != "" ]; do
 			nvimin="yes"
 			;;
 		-pc) # copy picom config
-		    picomc="yes"
+		        picomc="yes"
 			;;
 		-ps) # sed on polkit nopasswd file 
 			psed="$2"
@@ -107,4 +112,7 @@ fi
 mkdir "$HOME/.config"
 for capp in "${capps[@]}"; do
 	cp -r "$capp" "$HOME/.config"
+done
+for ctheme in "${cthemes[@]}"; do
+	sudo cp -r "$capp" "/usr/share/themes"
 done
