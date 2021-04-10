@@ -8,6 +8,7 @@ maim
 network-manager-applet
 notification-daemon
 picom
+polybar
 rofi
 sxhkd
 termite
