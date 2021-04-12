@@ -1,11 +1,14 @@
 acpilight
 awesome
 blueman
+gvfs-mtp
 lightdm-gtk-greeter-settings
 lxappearance
 maim
+nemo
 network-manager-applet
 papirus-icon-theme
+parcellite
 picom
 termite
 udiskie

@@ -18,6 +18,7 @@ cd $dirl
 cat pbase.txt | yay -S --needed -
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
+sudo systemctl enable tlp
 sudo systemctl enable org.cups.cupsd.service
 
 case "$toinst" in
@@ -37,11 +38,11 @@ case "$toinst" in
 	         ;;
 	"awesome" ) cat paex.txt | yay -S --needed -
 	            sudo systemctl enable lightdm
-	            bash cpconf -c termite -c awesome -xp -qg -pc -t termite
+	            bash cpconf -ct oomox-dracula -c termite -c awesome -xp -qg -pc -t termite
 	            ;;
 	"bspwm" ) cat pbex.txt | yay -S --needed -
 	          sudo systemctl enable lightdm
-	          bash cpconf -c bspwm -c polybar -c sxhkd -c termite -xp -qg -pc -t termite
+	          bash cpconf -ct oomox-dracula -c bspwm -c polybar -c sxhkd -c termite -xp -qg -pc -t termite
 		  ;;
 	"lxqt" ) cat plxqex.txt | yay -S --needed -
 	         sudo systemctl enable sddm
@@ -52,3 +53,4 @@ case "$toinst" in
 	        bash cpconf
 	        ;;
 esac
+rm -rf "$HOME/yay"
