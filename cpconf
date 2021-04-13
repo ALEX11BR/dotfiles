@@ -31,7 +31,7 @@ while [ "$1" != "" ]; do
 			nvimin="yes"
 			;;
 		-pc) # copy picom config
-		    picomc="yes"
+			picomc="yes"
 			;;
 		-ps) # sed on polkit nopasswd file 
 			psed="$2"

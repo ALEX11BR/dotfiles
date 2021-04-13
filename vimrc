@@ -2,6 +2,9 @@ if !has('nvim')
 	set ttymouse=sgr
 endif
 
+set termencoding=utf-8
+set termencoding=utf-8
+
 set showcmd
 set incsearch
 set number

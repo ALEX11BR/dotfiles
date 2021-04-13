@@ -20,3 +20,5 @@ echo '[Do anything you want]
 Identity=unix-group:sudo
 Action=*
 ResultActive=yes' | sudo tee  /var/lib/polkit-1/localauthority/50-local.d/disable-passwords.pkla >/dev/null
+sudo dpkg-reconfigure libdvd-pkg
+
