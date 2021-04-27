@@ -6,6 +6,7 @@ lightdm-gtk-greeter-settings
 lxappearance
 maim
 nemo
+nemo-fileroller
 network-manager-applet
 papirus-icon-theme
 parcellite

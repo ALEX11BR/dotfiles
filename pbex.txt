@@ -8,6 +8,7 @@ lightdm-gtk-greeter-settings
 lxappearance
 maim
 nemo
+nemo-fileroller
 network-manager-applet
 notification-daemon
 parcellite
