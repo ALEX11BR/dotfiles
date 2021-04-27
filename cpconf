@@ -114,5 +114,5 @@ for capp in "${capps[@]}"; do
 	cp -r "$capp" "$HOME/.config"
 done
 for ctheme in "${cthemes[@]}"; do
-	sudo cp -r "$capp" "/usr/share/themes"
+	sudo cp -r "$ctheme" "/usr/share/themes"
 done
