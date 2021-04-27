@@ -7,4 +7,4 @@ numlockx on &
 blueman-tray &
 pamac-tray &
 picom &
-/usr/lib/notification-daemon-1.0/notification-daemon &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &

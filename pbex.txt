@@ -10,7 +10,6 @@ maim
 nemo
 nemo-fileroller
 network-manager-applet
-notification-daemon
 parcellite
 picom
 polybar
@@ -18,4 +17,5 @@ rofi
 sxhkd
 termite
 udiskie
+xfce4-notifyd
 yaru-plus-git

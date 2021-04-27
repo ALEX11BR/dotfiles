@@ -24,7 +24,7 @@ echo "fastestmirror=1" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 bash cpconf -v "/etc/vimrc.local" -f "50-families.conf" -n -z "/etc/zshrc" -zs "s;/zsh/plugins;;" -c i3 -c alacritty -c awesome -c qtile -c bspwm -c sxhkd -c termite -c polybar -t alacritty
 if [ "$1" = "bspwm" ]; then
-	sudo dnf install bspwm sxhkd polybar picom udiskie parcellite blueman notification-daemon maim file-roller numlockx network-manager-applet picom udiskie dnfdragora-updater
+	sudo dnf install bspwm sxhkd polybar picom udiskie parcellite blueman xfce4-notifyd maim file-roller numlockx network-manager-applet picom udiskie dnfdragora-updater
 sed "s/pamac-tray/dnfdragora-updater/" xprofile | sudo tee /etc/xprofile >/dev/null
 fi
 
