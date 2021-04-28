@@ -18,7 +18,7 @@ super + r
 
 # task manager
 ctrl + shift + Escape
-	xfce4-taskmanager
+	$TERMINAL -e htop
 
 # screenshot
 Print
