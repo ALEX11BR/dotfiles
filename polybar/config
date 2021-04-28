@@ -59,9 +59,10 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = sans-serif:pixelsize=10;1
-font-1 = monospace:pixelsize=10;0
+font-1 = Symbols Nerd Font:pixelsize=10;1
 font-2 = FontAwesome:pixelsize=10;1
-font-3 = emoji:pixelsize=10;0
+font-3 = monospace:pixelsize=10;0
+font-4 = emoji:pixelsize=10;0
 
 modules-left = bspwm i3
 ;modules-center = mpd

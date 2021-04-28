@@ -99,6 +99,7 @@ texlive-most
 timidity++
 tlp
 ttf-liberation
+ttf-nerd-fonts-symbols
 unrar
 unzip
 virtualbox
