@@ -42,7 +42,7 @@ case "$toinst" in
 	            ;;
 	"bspwm" ) cat pbex.txt | yay -S --needed -
 	          sudo systemctl enable lightdm
-	          bash cpconf -p -ct oomox-dracula -c bspwm -c polybar -c sxhkd -c termite -xp -qg -pc -t termite
+	          bash cpconf -p -ct oomox-dracula -c bspwm -c polybar -c sxhkd -c termite -c rofi -xp -qg -pc -t termite
 		  ;;
 	"lxqt" ) cat plxqex.txt | yay -S --needed -
 	         sudo systemctl enable sddm

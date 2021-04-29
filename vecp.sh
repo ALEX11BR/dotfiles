@@ -10,7 +10,7 @@ sudo xbps-install -Suf NetworkManager htop zsh zsh-completions zsh-syntax-highli
 if [ "$1" = "bspwm" ]; then
 	sudo xbps-install -Suf bspwm sxhkd polybar udiskie xfce4-notifyd maim file-roller pcmanfm-qt lxappearance
 fi
-bash cpconf -v "/etc/vimrc.local" -xp -qg -pc -c bspwm -c sxhkd -c polybar -c alacritty -t alacritty
+bash cpconf -v "/etc/vimrc.local" -xp -qg -pc -c bspwm -c sxhkd -c polybar -c rofi -c alacritty -t alacritty
 sed "s/pamac-tray/octoxbps-notifier/" /etc/xprofile | sudo tee /etc/xprofile >/dev/null
 sudo rm /var/service/dhcpcd
 sudo rm /var/service/lxdm
