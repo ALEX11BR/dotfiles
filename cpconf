@@ -5,6 +5,7 @@ cthemes=()
 ffamilies=""
 psed=""
 nvimin=""
+p10kc=""
 picomc=""
 qgset=""
 terml=""
@@ -29,6 +30,9 @@ while [ "$1" != "" ]; do
 			;;
 		-n) # use neovim instead of vim
 			nvimin="yes"
+			;;
+		-p) # use p10k in zsh
+			p10kc="yes"
 			;;
 		-pc) # copy picom config
 			picomc="yes"
@@ -65,11 +69,30 @@ done
 
 sudo chsh -s /bin/zsh $(whoami)
 sudo chsh -s /bin/zsh
+
+if [ "$p10kc" != "" ]; then
+	cp p10k.zsh ~/.p10k.zsh
+	cat > ~/.zshrc <<'EOL'
+	# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+	# Initialization code that may require console input (password prompts, [y/n]
+	# confirmations, etc.) must go above this block; everything else may go below.
+	if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+	  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+	fi
+EOL
+fi
 cat >> ~/.zshrc <<'EOL'
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 EOL
+if [ "$p10kc" != "" ]; then
+	cat >> ~/.zshrc <<'EOL'
+	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+EOL
+fi
 echo 'export GOPATH=~/Documents/go' >> ~/.profile
 if [ "$zshs" != "" ]; then
 	sed "$zshs" zshrc | sudo tee "$zshc" >/dev/null

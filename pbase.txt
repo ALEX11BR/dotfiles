@@ -83,7 +83,6 @@ openttd
 p7zip
 pacman
 pacman-contrib
-papirus-icon-theme
 patch
 pavucontrol
 pkgconf
@@ -122,3 +121,4 @@ zsh
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
+zsh-theme-powerlevel10k-git
