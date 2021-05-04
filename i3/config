@@ -42,14 +42,14 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
-bindsym Print exec --no-startup-id maim "$HOME/Pictures/$(date +%s).png"
+bindsym Print exec --no-startup-id maim "$HOME/Pictures/$(date +%s).png" && notify-send "Sceenshot taken!"
 # You can also use any non-zero value if you'd like to have a border
 for_window [tiling] border pixel 5
 for_window [floating] border normal
-client.focused          "#bd93f9" "#bd93f9" "#f8f8f2" "#ff79c6" "#bd93f9"
+client.focused          "#ff79c6" "#ff79c6" "#f8f8f2" "#bd93f9" "#ff79c6"
 client.focused_inactive "#282a33" "#282a33" "#f8f8f2" "#555555" "#282a33"
 client.unfocused        "#282a33" "#282a33" "#f8f8f2" "#555555" "#282a33"
-client.urgent           "#ff5555" "#ff5555" "#f8f8f2" "#ff79c6" "#ff5555"
+client.urgent           "#ff5555" "#ff5555" "#f8f8f2" "#bd93f9" "#ff5555"
 gaps inner 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
