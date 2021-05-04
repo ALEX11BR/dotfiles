@@ -79,6 +79,9 @@
     background-color: @active-background;
     text-color:       @foreground;
 }
+#element-icon {
+    size: 1.65ch;
+}
 #scrollbar {
     width:        4px ;
     border:       0;
