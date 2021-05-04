@@ -83,6 +83,7 @@ openttd
 p7zip
 pacman
 pacman-contrib
+pamac-aur
 patch
 pavucontrol
 pkgconf

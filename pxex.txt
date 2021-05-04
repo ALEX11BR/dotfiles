@@ -5,6 +5,5 @@ file-roller
 gvfs-mtp
 lightdm-gtk-greeter-settings
 network-manager-applet
-pamac-aur
 xfce4
 xfce4-goodies

@@ -6,4 +6,3 @@ mate
 mate-extra
 mate-menu
 mate-tweak
-pamac-aur

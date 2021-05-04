@@ -5,5 +5,4 @@ breeze-icons
 gvfs-mtp
 lxqt
 network-manager-applet
-pamac-aur
 sddm

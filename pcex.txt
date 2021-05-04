@@ -20,6 +20,5 @@ mint-y-icons
 muffin
 nemo
 nemo-fileroller
-pamac-aur
 viewnior
 xed
