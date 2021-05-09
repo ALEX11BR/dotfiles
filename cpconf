@@ -72,7 +72,7 @@ sudo chsh -s /bin/zsh
 
 if [ "$p10kc" != "" ]; then
 	cp p10k.zsh ~/.p10k.zsh
-	cat > ~/.zshrc <<'EOL'
+	cat > "$zshc" <<'EOL'
 	# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 	# Initialization code that may require console input (password prompts, [y/n]
 	# confirmations, etc.) must go above this block; everything else may go below.
@@ -81,7 +81,8 @@ if [ "$p10kc" != "" ]; then
 	fi
 EOL
 fi
-cat >> ~/.zshrc <<'EOL'
+sed "$zshs" zshrc | sudo tee -a "$zshc" >/dev/null
+cat > ~/.zshrc <<'EOL'
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -94,11 +95,6 @@ if [ "$p10kc" != "" ]; then
 EOL
 fi
 echo 'export GOPATH=~/Documents/go' >> ~/.profile
-if [ "$zshs" != "" ]; then
-	sed "$zshs" zshrc | sudo tee "$zshc" >/dev/null
-else
-	sudo cp zshrc "$zshc"
-fi
 if [ "$qgset" != "" ]; then
 	echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment >/dev/null
 fi
