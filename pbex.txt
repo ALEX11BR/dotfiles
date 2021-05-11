@@ -14,8 +14,10 @@ parcellite
 picom
 polybar
 rofi
+rofimoji
 sxhkd
 termite
 udiskie
+xdotool
 xfce4-notifyd
 yaru-plus-git
