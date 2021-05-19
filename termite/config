@@ -38,7 +38,7 @@ cursor_blink = off
 #size_hints = false
 
 # "off", "left" or "right"
-#scrollbar = off
+scrollbar = right
 
 [colors]
 # Dracula theme
