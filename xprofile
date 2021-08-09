@@ -2,9 +2,12 @@
 
 udiskie --smart-tray &
 parcellite &
-nm-applet &
 numlockx on &
 blueman-tray &
-pamac-tray &
-picom &
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
+octoxbps-notifier &
+
+if [ -z "$XDG_CURRENT_DESKTOP" ]; then
+	nm-applet &
+	picom &
+	/usr/lib/xfce4/notifyd/xfce4-notifyd &
+fi
