@@ -72,14 +72,13 @@ sudo chsh -s /bin/zsh
 
 if [ "$p10kc" != "" ]; then
 	cp p10k.zsh ~/.p10k.zsh
-	cat > "$zshc" <<'EOL'
+	echo '
 	# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 	# Initialization code that may require console input (password prompts, [y/n]
 	# confirmations, etc.) must go above this block; everything else may go below.
 	if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 	  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-	fi
-EOL
+	fi' | sudo tee "$zshc" >/dev/null
 fi
 sed "$zshs" zshrc | sudo tee -a "$zshc" >/dev/null
 cat > ~/.zshrc <<'EOL'
