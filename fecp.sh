@@ -1,5 +1,9 @@
 #!/bin/bash
 cd $(dirname $(readlink -f "$0") )
+if [ "$EUID" = 0 ]; then
+    echo "Treci pe utilizatorul tău, nu pe root!"
+    exit
+fi
 sudo dnf install -y dnf-plugins-core
 sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc

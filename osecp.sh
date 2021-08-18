@@ -1,5 +1,9 @@
 #!/bin/bash
 cd $(dirname $(readlink -f "$0") )
+if [ "$EUID" = 0 ]; then
+    echo "Treci pe utilizatorul tău, nu pe root!"
+    exit
+fi
 
 sudo zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
 sudo zypper refresh

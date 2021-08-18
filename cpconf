@@ -67,6 +67,8 @@ while [ "$1" != "" ]; do
 	shift
 done
 
+sudo usermod -a -G video $(whoami)
+
 sudo chsh -s /bin/zsh $(whoami)
 sudo chsh -s /bin/zsh
 

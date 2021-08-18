@@ -1,6 +1,9 @@
 #!/bin/bash
 dirl=$(dirname $(readlink -f "$0") )
-echo "Avem utilizatorul bun (alex) sper, hai să ne apucăm de treabă!"
+if [ "$EUID" = 0 ]; then
+    echo "Treci pe utilizatorul tău, nu pe root!"
+    exit
+fi
 sudo pacman -S git
 git clone https://aur.archlinux.org/yay.git "$HOME/yay"
 cd "$HOME/yay"
