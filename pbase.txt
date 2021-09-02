@@ -29,8 +29,8 @@ ghostscript
 gimp
 git
 gptfdisk
-gnome-calculator
 gnome-icon-theme
+gnome-ssh-askpass3
 gnome-themes-extra
 grep
 groff
@@ -88,6 +88,7 @@ pkgconf
 pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
+qalculate-gtk
 qbittorrent
 qt5-styleplugins
 qt5-svg
@@ -102,6 +103,7 @@ ttf-liberation
 ttf-nerd-fonts-symbols
 unrar
 unzip
+vim-plugins
 virtualbox
 virtualbox-guest-iso
 virtualbox-host-modules-arch
