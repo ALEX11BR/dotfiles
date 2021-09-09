@@ -1,13 +1,15 @@
 #!/bin/sh
 
-udiskie --smart-tray &
-parcellite &
 numlockx on &
-blueman-tray &
 pamac-tray &
 
-if [ -z "$XDG_CURRENT_DESKTOP" ]; then
+if [ -z "$XDG_CURRENT_DESKTOP" ] && [ "$DESKTOP_SESSION" != "cinnamon" ]; then
+	udiskie --smart-tray &
+	parcellite &
+	blueman-tray &
 	nm-applet &
 	picom &
-	/usr/lib/xfce4/notifyd/xfce4-notifyd &
+	if [ "$DESKTOP_SESSION" != "awesome" ]; then
+		/usr/lib/xfce4/notifyd/xfce4-notifyd &
+	fi
 fi
