@@ -1,5 +1,6 @@
 alsa-plugins
 alsa-utils
+audacious
 autoconf
 automake
 base
@@ -108,7 +109,6 @@ virtualbox
 virtualbox-guest-iso
 virtualbox-host-modules-arch
 vlc
-vlc-plugin-fluidsynth
 wget
 which
 xdg-user-dirs-gtk
