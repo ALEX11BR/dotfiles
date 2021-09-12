@@ -274,14 +274,14 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
+    -- awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+    --           {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Control" }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ }, "Print", function () awful.spawn.with_shell("maim ~/Pictures/$(date +%s).png && notify-send 'Screenshot saved!'") end,
-              {description = "Take a screenshot", group = "launcher"}),
+    -- awful.key({ }, "Print", function () awful.spawn.with_shell("maim ~/Pictures/$(date +%s).png && notify-send 'Screenshot saved!'") end,
+    --           {description = "Take a screenshot", group = "launcher"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),

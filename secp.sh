@@ -41,7 +41,7 @@ case "$toinst" in
 	         ;;
 	"awesome" ) cat paex.txt | yay -S --needed -
 	            sudo systemctl enable lightdm
-	            bash cpconf -p -ct oomox-dracula -c termite -c awesome -xp -qg -pc -t termite
+	            bash cpconf -p -ct oomox-dracula -c termite -c awesome -c sxhkd -xp -qg -pc -t termite
 	            ;;
 	"bspwm" ) cat pbex.txt | yay -S --needed -
 	          sudo systemctl enable lightdm

@@ -80,7 +80,7 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
-    Key([mod], "Return", lazy.spawn(os.environ['TERMINAL'] or "termite")),
+    #Key([mod], "Return", lazy.spawn(os.environ['TERMINAL'] or "termite")),
 
     # Toggle between different layouts as defined below
     Key([mod], "space", lazy.next_layout()),

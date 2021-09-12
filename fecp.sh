@@ -19,7 +19,7 @@ pmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm htt
 sudo rpm -ivh http://rpm.livna.org/livna-release.rpm
 sudo dnf update
 sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda vdpauinfo libva-vdpau-driver libva-utils
-sudo dnf install -y flatpak google-noto-\* vlc gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav lame\* libdvdcss
+sudo dnf install -y flatpak google-noto-\* vlc gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav lame\* libdvdcss playerctl sxhkd
 sudo dnf install -y zsh zsh-syntax-highlighting zsh-autosuggestions
 sudo dnf install -y neovim git htop
 sudo dnf install -y alacritty
@@ -28,7 +28,6 @@ echo "fastestmirror=1" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 bash cpconf -v "/etc/vimrc.local" -f "50-families.conf" -n -z "/etc/zshrc" -zs "s;/zsh/plugins;;" -ct oomox-dracula -c i3 -c alacritty -c awesome -c qtile -c bspwm -c sxhkd -c rofi -c polybar -t alacritty
 if [ "$1" = "bspwm" ]; then
-	sudo dnf install bspwm sxhkd polybar rofi picom udiskie parcellite blueman xfce4-notifyd maim file-roller numlockx network-manager-applet picom udiskie dnfdragora-updater
-sed "s/pamac-tray/dnfdragora-updater/" xprofile | sudo tee /etc/xprofile >/dev/null
+	sudo dnf install bspwm polybar rofi picom udiskie parcellite blueman xfce4-notifyd maim file-roller numlockx network-manager-applet picom udiskie dnfdragora-updater
 fi
-
+sed "s/pamac-tray/dnfdragora-updater/" xprofile | sudo tee /etc/xprofile >/dev/null

@@ -11,5 +11,6 @@ network-manager-applet
 papirus-icon-theme
 parcellite
 picom
+sxhkd
 termite
 udiskie

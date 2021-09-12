@@ -86,6 +86,7 @@ pamac-aur
 patch
 pavucontrol
 pkgconf
+playerctl
 pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth

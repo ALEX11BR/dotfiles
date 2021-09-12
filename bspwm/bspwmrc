@@ -1,7 +1,7 @@
 #!/bin/sh
 
 $HOME/.config/polybar/launch.sh nonexample &
-sxhkd &
+killall sxhkd ; sxhkd $HOME/.config/bspwm/sxhkdrc &
 
 bspc config border_width          4
 #bspc config bottom_padding       10
