@@ -2,10 +2,10 @@
 
 numlockx on &
 pamac-tray &
-sxhkd &
 
 if [ -z "$XDG_CURRENT_DESKTOP" ] && [ "$DESKTOP_SESSION" != "cinnamon" ]; then
 	udiskie --smart-tray &
+	sxhkd &
 	parcellite &
 	blueman-tray &
 	nm-applet &

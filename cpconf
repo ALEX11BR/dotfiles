@@ -42,7 +42,10 @@ while [ "$1" != "" ]; do
 			shift
 			;;
 		-qg) # set gtk2 qt style
-			qgset="yes"
+			qgset="QT_QPA_PLATFORMTHEME=gtk2"
+			;;
+		-qk) # set kvantum qt style
+			qgset="QT_STYLE_OVERRIDE=kvantum"
 			;;
 		-t) # set TERMINAL
 			terml="$2"
@@ -97,7 +100,7 @@ EOL
 fi
 echo 'export GOPATH=~/Documents/go' >> ~/.profile
 if [ "$qgset" != "" ]; then
-	echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment >/dev/null
+	echo "$qgset" | sudo tee -a /etc/environment >/dev/null
 fi
 if [ "$terml" != "" ]; then
 	echo "TERMINAL=$terml" | sudo tee -a /etc/environment >/dev/null
@@ -122,6 +125,9 @@ if [ "$nvimin" != "" ]; then
 	sudo mkdir -p /etc/xdg/nvim/
 	echo "source $viml"| sudo tee -a /etc/xdg/nvim/sysinit.vim
 	echo "alias vim='nvim'" | sudo tee -a "$zshc" >/dev/null
+	echo "EDITOR=nvim" | sudo tee -a /etc/environment >/dev/null
+else
+	echo "EDITOR=vim" | sudo tee -a /etc/environment >/dev/null
 fi
 if [ "$picomc" != "" ]; then
 	sudo install -Dm644 picom.conf /etc/xdg/picom.conf
