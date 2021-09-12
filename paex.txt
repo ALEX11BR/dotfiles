@@ -1,6 +1,7 @@
 acpilight
 awesome
 blueman
+gmrun
 gvfs-mtp
 lightdm-gtk-greeter-settings
 lxappearance
