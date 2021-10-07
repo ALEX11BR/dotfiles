@@ -4,13 +4,16 @@ numlockx on &
 pamac-tray &
 
 if [ -z "$XDG_CURRENT_DESKTOP" ] && [ "$DESKTOP_SESSION" != "cinnamon" ]; then
+	xsettingsd &
 	udiskie --smart-tray &
 	sxhkd &
 	parcellite &
-	blueman-tray &
+	blueman-applet &
 	nm-applet &
 	picom &
 	if [ "$DESKTOP_SESSION" != "awesome" ]; then
 		/usr/lib/xfce4/notifyd/xfce4-notifyd &
 	fi
+	eval $(/usr/bin/gnome-keyring-daemon --start)
+	export SSH_AUTH_SOCK
 fi

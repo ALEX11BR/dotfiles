@@ -2,7 +2,10 @@ acpilight
 awesome
 blueman
 gmrun
+gnome-keyring
 gvfs-mtp
+libgnome-keyring
+libsecret
 lightdm-gtk-greeter-settings
 lxappearance
 maim
@@ -15,3 +18,4 @@ picom
 sxhkd
 termite
 udiskie
+xsettingsd

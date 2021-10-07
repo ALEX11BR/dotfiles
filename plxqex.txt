@@ -6,3 +6,4 @@ gvfs-mtp
 lxqt
 network-manager-applet
 sddm
+xsettingsd

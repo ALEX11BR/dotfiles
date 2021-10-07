@@ -3,7 +3,10 @@ blueman
 bspwm
 feh
 gmrun
+gnome-keyring
 gvfs-mtp
+libgnome-keyring
+libsecret
 lightdm-gtk-greeter-settings
 lxappearance
 maim
@@ -20,4 +23,4 @@ termite
 udiskie
 xdotool
 xfce4-notifyd
-yaru-plus-git
+xsettingsd

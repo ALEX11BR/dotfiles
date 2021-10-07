@@ -15,7 +15,6 @@ sudo dnf check-update
 sudo dnf install -y code
 
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-pmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo rpm -ivh http://rpm.livna.org/livna-release.rpm
 sudo dnf update
 sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda vdpauinfo libva-vdpau-driver libva-utils
@@ -28,6 +27,6 @@ echo "fastestmirror=1" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 bash cpconf -v "/etc/vimrc.local" -f "50-families.conf" -n -z "/etc/zshrc" -zs "s;/zsh/plugins;;" -ct oomox-dracula -c i3 -c alacritty -c awesome -c qtile -c bspwm -c sxhkd -c rofi -c polybar -t alacritty
 if [ "$1" = "bspwm" ]; then
-	sudo dnf install bspwm polybar rofi picom udiskie parcellite blueman xfce4-notifyd maim file-roller numlockx network-manager-applet picom udiskie dnfdragora-updater
+	sudo dnf install bspwm polybar rofi picom xsettingsd gnome-keyring udiskie parcellite blueman xfce4-notifyd maim file-roller numlockx network-manager-applet picom udiskie dnfdragora-updater
 fi
 sed "s/pamac-tray/dnfdragora-updater/" xprofile | sudo tee /etc/xprofile >/dev/null

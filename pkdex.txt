@@ -65,4 +65,5 @@ spectacle
 systemsettings
 user-manager
 xdg-desktop-portal-kde
+xsettingsd
 zeroconf-ioslave
