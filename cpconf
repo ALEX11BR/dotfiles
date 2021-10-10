@@ -37,6 +37,9 @@ while [ "$1" != "" ]; do
 		-pc) # copy picom config
 			picomc="yes"
 			;;
+		-pi) # install p10k
+			p10kc="install"
+			;;
 		-ps) # sed on polkit nopasswd file 
 			psed="$2"
 			shift
@@ -75,6 +78,9 @@ sudo usermod -a -G video $(whoami)
 sudo chsh -s /bin/zsh $(whoami)
 sudo chsh -s /bin/zsh
 
+if [ "$p1okc" = "install" ]; then
+	sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /usr/share/zsh-theme-powerlevel10k
+fi
 if [ "$p10kc" != "" ]; then
 	cp p10k.zsh ~/.p10k.zsh
 	echo '
@@ -98,7 +104,7 @@ if [ "$p10kc" != "" ]; then
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 EOL
 fi
-echo 'export GOPATH=~/Documents/go' >> ~/.profile
+echo 'export GOPATH=~/Public/go' >> ~/.profile
 if [ "$qgset" != "" ]; then
 	echo "$qgset" | sudo tee -a /etc/environment >/dev/null
 fi
