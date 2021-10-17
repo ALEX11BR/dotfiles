@@ -10,6 +10,7 @@ picomc=""
 qgset=""
 terml=""
 viml="/etc/vimrc"
+xcont=""
 xprofin=""
 zshc="/etc/zsh/zshrc"
 zshs=""
@@ -57,6 +58,9 @@ while [ "$1" != "" ]; do
 		-v) # location of vimrc
 			viml="$2"
 			shift
+			;;
+		-xc) # copy game controller udev rule
+			xcont="yes"
 			;;
 		-xp) # copy xprofile file
 		   	xprofin="yes"
@@ -122,6 +126,9 @@ sudo cp 00-keyboard.conf /etc/X11/xorg.conf.d/
 sudo cp 30-touchpad.conf /etc/X11/xorg.conf.d/
 sudo cp 50-families.conf "/etc/fonts/conf.d/$ffamilies"
 
+if [ "$xcont" != "" ]; then
+	sudo cp 51-xbox-gamepad.rules /etc/udev/rules.d/
+fi
 if [ "$psed" != "" ]; then
 	sed "$psed" 49-nopasswd_global.rules | sudo tee /etc/polkit-1/rules.d/49-nopasswd_global.rules >/dev/null
 else

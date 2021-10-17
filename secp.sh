@@ -27,33 +27,33 @@ sudo systemctl enable org.cups.cupsd.service
 case "$toinst" in
 	"cinnamon" ) cat pcex.txt | yay -S --needed -
 	             sudo systemctl enable lightdm
-	             bash cpconf -p -qg
+	             bash cpconf -xc -p -qg
 	             ;;
 	"mate" ) cat pmex.txt | yay -S --needed -
 	         yay -Rs mate-calc
 	         sudo systemctl enable lightdm
-	         bash cpconf -p -qg
+	         bash cpconf -xc -p -qg
 	         ;;
 	"xfce" ) cat pxex.txt | yay -S --needed -
 	         yay -Rs parole orage
 	         sudo systemctl enable lightdm
-	         bash cpconf -p -qg
+	         bash cpconf -xc -p -qg
 	         ;;
 	"awesome" ) cat paex.txt | yay -S --needed -
 	            sudo systemctl enable lightdm
-	            bash cpconf -p -ct oomox-dracula -c termite -c awesome -c sxhkd -xp -qg -pc -t termite
+	            bash cpconf -xc -p -ct oomox-dracula -c termite -c awesome -c sxhkd -xp -qg -pc -t termite
 	            ;;
 	"bspwm" ) cat pbex.txt | yay -S --needed -
 	          sudo systemctl enable lightdm
-	          bash cpconf -p -ct oomox-dracula -c bspwm -c polybar -c sxhkd -c termite -c rofi -xp -qg -pc -t termite
+	          bash cpconf -xc -p -ct oomox-dracula -c bspwm -c polybar -c sxhkd -c termite -c rofi -xp -qg -pc -t termite
 		  ;;
 	"lxqt" ) cat plxqex.txt | yay -S --needed -
 	         sudo systemctl enable sddm
-	         bash cpconf -p
+	         bash cpconf -xc -p
 		 ;;
 	"kde" ) cat pkdex.txt | yay -S --needed -
 	        sudo systemctl enable sddm
-	        bash cpconf -p
+	        bash cpconf -xc -p
 	        ;;
 esac
 rm -rf "$HOME/yay"

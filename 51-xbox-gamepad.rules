@@ -1,0 +1,18 @@
+# By default, X-Box 360-compatible controllers are detectable but dysfunctional because they expect the host
+# to send a particular USB control transfer with some sort of initialization command.
+# This udev rule will invoke a trivial Python script automatically when the gamepad is connected that emits
+# the required initialization command.
+#
+# Integration:
+# 1. Put this rule into /etc/udev/rules.d/51-xbox-gamepad.rules
+# 2. Install pyusb for the root's Python:   sudo pip install pyusb
+# 3. Reload udev rules as root:             udevadm control --reload-rules && udevadm trigger
+#
+# If you are on a systemd-based distro, you can use this for troubleshooting:
+# 1. Enable verbose logging:                        udevadm control --log-priority=info
+# 2. Watch the logs while connecting the device:    journalctl -f
+#
+# Inspired by Darvin Delgado's https://gist.github.com/dnmodder/de2df973323b7c6acf45f40dc66e8db3
+
+ACTION=="add", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="028e", \
+RUN+="/usr/bin/env python3 -c 'for d in __import__(\"usb\").core.find(find_all=True, idVendor=0x045e, idProduct=0x028e): d.ctrl_transfer(0xc1, 0x01, 0x0100, 0x00, 0x14)'"
