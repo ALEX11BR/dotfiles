@@ -82,7 +82,7 @@ sudo usermod -a -G video $(whoami)
 sudo chsh -s /bin/zsh $(whoami)
 sudo chsh -s /bin/zsh
 
-if [ "$p1okc" = "install" ]; then
+if [ "$p10kc" = "install" ]; then
 	sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /usr/share/zsh-theme-powerlevel10k
 fi
 if [ "$p10kc" != "" ]; then
