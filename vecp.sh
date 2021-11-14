@@ -10,8 +10,7 @@ sudo xbps-install -Suf NetworkManager playerctl numlockx htop zsh zsh-completion
 if [ "$1" = "bspwm" ]; then
 	sudo xbps-install -Suf bspwm sxhkd polybar rofi udiskie xfce4-notifyd maim xsettingsd gnome-keyring file-roller pcmanfm-qt 
 fi
-bash cpconf -v "/etc/vimrc.local" -xp -qg -pi -pc -ct oomox-dracula -c bspwm -c sxhkd -c polybar -c rofi -c alacritty -t alacritty
-sed "s/pamac-tray/octoxbps-notifier/" /etc/xprofile | sudo tee /etc/xprofile >/dev/null
+bash cpconf -v "/etc/vimrc.local" -xs "s/pamac-tray/octoxbps-notifier/" -qg -pi -pc -ct oomox-dracula -c bspwm -c sxhkd -c polybar -c rofi -c alacritty -t alacritty
 chmod +x ~/.config/bspwm/bspwmrc
 chmod +x ~/.config/polybar/launch.sh
 sudo rm /var/service/dhcpcd

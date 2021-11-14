@@ -41,7 +41,7 @@ while [ "$1" != "" ]; do
 		-pi) # install p10k
 			p10kc="install"
 			;;
-		-ps) # sed on polkit nopasswd file 
+		-ps) # sed on polkit nopasswd file
 			psed="$2"
 			shift
 			;;
@@ -63,7 +63,11 @@ while [ "$1" != "" ]; do
 			xcont="yes"
 			;;
 		-xp) # copy xprofile file
-		   	xprofin="yes"
+		   	xprofin="#"
+			;;
+		-xs) # sed on xprofile
+			xprofin="$2"
+			shift
 			;;
 		-z) # location of zshrc (full path + filename 'zshrc')
 			zshc="$2"
@@ -136,7 +140,7 @@ else
 fi
 if [ "$nvimin" != "" ]; then
 	sudo mkdir -p /etc/xdg/nvim/
-	echo "source $viml"| sudo tee -a /etc/xdg/nvim/sysinit.vim
+	echo "source $viml"| sudo tee -a /etc/xdg/nvim/sysinit.vim >/dev/null
 	echo "alias vim='nvim'" | sudo tee -a "$zshc" >/dev/null
 	echo "EDITOR=nvim" | sudo tee -a /etc/environment >/dev/null
 else
@@ -146,7 +150,7 @@ if [ "$picomc" != "" ]; then
 	sudo install -Dm644 picom.conf /etc/xdg/picom.conf
 fi
 if [ "$xprofin" != "" ]; then
-	sudo cp xprofile /etc
+	sed "$xprofin" xprofile | sudo tee /etc/xpofile >/dev/null
 fi
 mkdir "$HOME/.config"
 for capp in "${capps[@]}"; do
