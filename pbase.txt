@@ -1,3 +1,4 @@
+acpilight
 alsa-plugins
 alsa-utils
 audacious
@@ -119,6 +120,7 @@ xorg-server
 xorg-xinit
 xorg-xkill
 yay
+youtube-dl
 zip
 zsh
 zsh-autosuggestions

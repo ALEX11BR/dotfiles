@@ -1,4 +1,3 @@
-acpilight
 awesome
 blueman
 gmrun
@@ -7,7 +6,6 @@ gvfs-mtp
 libgnome-keyring
 libsecret
 lightdm-gtk-greeter-settings
-lxappearance
 maim
 nemo
 nemo-fileroller
@@ -17,5 +15,6 @@ parcellite
 picom
 sxhkd
 termite
+themechanger-git
 udiskie
 xsettingsd
