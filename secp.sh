@@ -4,6 +4,8 @@ if [ "$EUID" = 0 ]; then
     echo "Treci pe utilizatorul tău, nu pe root!"
     exit
 fi
+echo -e '[multilib]\nInclude = /etc/pacman.d/mirrorlist' | sudo tee -a /etc/pacman.conf >/dev/null
+sudo pacman -Syu
 sudo pacman -S git
 git clone https://aur.archlinux.org/yay.git "$HOME/yay"
 cd "$HOME/yay"

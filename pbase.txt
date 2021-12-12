@@ -108,14 +108,10 @@ ttf-nerd-fonts-symbols
 unrar
 unzip
 vim-plugins
-virtualbox
-virtualbox-guest-iso
-virtualbox-host-modules-arch
 vlc
 wget
 which
 xdg-user-dirs-gtk
-xorg
 xorg-server
 xorg-xinit
 xorg-xkill

@@ -150,7 +150,7 @@ if [ "$picomc" != "" ]; then
 	sudo install -Dm644 picom.conf /etc/xdg/picom.conf
 fi
 if [ "$xprofin" != "" ]; then
-	sed "$xprofin" xprofile | sudo tee /etc/xpofile >/dev/null
+	sed "$xprofin" xprofile | sudo tee /etc/xprofile >/dev/null
 fi
 mkdir "$HOME/.config"
 for capp in "${capps[@]}"; do
