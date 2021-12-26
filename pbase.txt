@@ -1,7 +1,6 @@
 acpilight
 alsa-plugins
 alsa-utils
-audacious
 autoconf
 automake
 base
@@ -96,6 +95,7 @@ qalculate-gtk
 qbittorrent
 qt5-styleplugins
 qt5-svg
+rhythmbox
 sed
 soundfont-fluid
 sudo

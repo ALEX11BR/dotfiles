@@ -20,5 +20,5 @@ mint-y-icons
 muffin
 nemo
 nemo-fileroller
-viewnior
 xed
+xviewer
