@@ -75,13 +75,12 @@ in
     (chromium.override {
       commandLineArgs = "--load-media-router-component-extension=1";
       enableWideVine = true;
-      enableVaapi = true;
     })
     wget openssh git
     gcc
     starship # zsh-powerlevel10k
     nvidia-offload
-    rofi gmrun termite neofetch maim networkmanagerapplet numlockx acpilight
+    rofi gmrun termite neofetch maim networkmanagerapplet numlockx acpilight sxhkd
     gnome3.gnome-calculator
     polybar
     xfce.thunar xfce.thunar-volman xfce.xfconf xfce.tumbler xfce.thunar-archive-plugin gnome3.file-roller
@@ -178,7 +177,7 @@ in
       naturalScrolling = true;
     };
   };
-  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.prime = {
     offload.enable = true;
     nvidiaBusId = "PCI:1:0:0";
@@ -242,6 +241,8 @@ in
       ];
     };
 
+    programs.zsh.enable = true;
+
     gtk = {
       enable = true;
       iconTheme.name = "breeze";
@@ -254,6 +255,7 @@ in
     xdg.configFile."polybar/launch.sh".executable = true;
     xdg.configFile."bspwm/bspwmrc".text = builtins.readFile bspwm/bspwmrc;
     xdg.configFile."bspwm/bspwmrc".executable = true;
+    xdg.configFile."bspwm/sxhkdrc".text = builtins.readFile bspwm/sxhkdrc;
     xdg.configFile."sxhkd/sxhkdrc".text = builtins.readFile sxhkd/sxhkdrc;
 
     services.udiskie.enable = true;
