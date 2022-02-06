@@ -83,8 +83,8 @@ done
 
 sudo usermod -a -G video $(whoami)
 
-sudo chsh -s /bin/zsh $(whoami)
-sudo chsh -s /bin/zsh
+sudo usermod -s /bin/zsh $(whoami)
+sudo usermod -s /bin/zsh root
 
 if [ "$p10kc" = "install" ]; then
 	sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /usr/share/zsh-theme-powerlevel10k
