@@ -116,7 +116,7 @@ xorg-server
 xorg-xinit
 xorg-xkill
 yay
-youtube-dl
+yt-dlp
 zip
 zsh
 zsh-autosuggestions
