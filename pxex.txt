@@ -1,8 +1,9 @@
 alacarte
-blueberry
+blueman
 breeze-icons
 file-roller
 gvfs-mtp
+libxfce4ui-nocsd
 lightdm-gtk-greeter-settings
 network-manager-applet
 xfce4
