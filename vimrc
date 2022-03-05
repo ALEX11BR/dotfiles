@@ -3,7 +3,6 @@ if !has('nvim')
 endif
 
 set termencoding=utf-8
-set termencoding=utf-8
 
 set showcmd
 set incsearch
@@ -16,4 +15,3 @@ set shiftwidth=4
 
 autocmd InsertEnter * silent !echo -ne "\e[5 q"
 autocmd InsertLeave * silent !echo -ne "\e[1 q"
-set virtualedit=onemore
