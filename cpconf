@@ -3,10 +3,11 @@ cd $(dirname $(readlink -f "$0") )
 capps=()
 cthemes=()
 ffamilies=""
-psed=""
+localonly=""
 nvimin=""
 p10kc=""
 picomc=""
+psed=""
 qgset=""
 terml=""
 viml="/etc/vimrc"
@@ -14,6 +15,21 @@ xcont=""
 xprofin=""
 zshc="/etc/zsh/zshrc"
 zshs=""
+
+setenv () {
+	if [ "$localonly" != "" ]; then
+		echo "export $1" >> "$HOME/.profile"
+	else
+		echo "$1" | sudo tee -a /etc/environment >/dev/null
+	fi
+}
+zshcadd () {
+	if [ "$localonly" != "" ]; then
+		tee $1 "$HOME/.zshrc" >/dev/null
+	else
+		sudo tee $1 "$zshc" >/dev/null
+	fi
+}
 
 while [ "$1" != "" ]; do
 	case "$1" in 
@@ -28,6 +44,9 @@ while [ "$1" != "" ]; do
 		-f) # set custom name for fontconfig families file
 			ffamilies="$2"
 			shift
+			;;
+		-l) # preferably install config files locally
+			localonly="yes"
 			;;
 		-n) # use neovim instead of vim
 			nvimin="yes"
@@ -86,6 +105,8 @@ sudo usermod -a -G video $(whoami)
 sudo usermod -s /bin/zsh $(whoami)
 sudo usermod -s /bin/zsh root
 
+mkdir "$HOME/.config"
+mkdir "$HOME/.themes"
 if [ "$p10kc" = "install" ]; then
 	sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /usr/share/zsh-theme-powerlevel10k
 fi
@@ -97,16 +118,12 @@ if [ "$p10kc" != "" ]; then
 	# confirmations, etc.) must go above this block; everything else may go below.
 	if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 	  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-	fi' | sudo tee "$zshc" >/dev/null
+	fi' | zshcadd
 fi
-sed "$zshs" zshrc | sudo tee -a "$zshc" >/dev/null
-cat > ~/.zshrc <<'EOL'
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-EOL
+sed "$zshs" zshrc | zshcadd -a
+touch ~/.zshrc
 if [ "$p10kc" != "" ]; then
-	cat >> ~/.zshrc <<'EOL'
+	zshcadd -a <<'EOL'
 	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -114,48 +131,70 @@ EOL
 fi
 echo 'export GOPATH=~/Public/go' >> ~/.profile
 if [ "$qgset" != "" ]; then
-	echo "$qgset" | sudo tee -a /etc/environment >/dev/null
+	setenv "$qgset"
 fi
 if [ "$terml" != "" ]; then
-	echo "TERMINAL=$terml" | sudo tee -a /etc/environment >/dev/null
+	setenv "TERMINAL=$terml"
 fi
 git config --global user.name "Popa Ioan Alexandru"
 git config --global user.email "alexioanpopa11@gmail.com"
 
-sudo mkdir -p /etc/X11/xorg.conf.d/
-sudo mkdir -p /etc/polkit-1/rules.d/
-cat vimrc | sudo tee -a "$viml" >/dev/null
-sudo cp -r iosevka-custom /usr/share/fonts
-sudo cp 00-keyboard.conf /etc/X11/xorg.conf.d/
-sudo cp 30-touchpad.conf /etc/X11/xorg.conf.d/
-sudo cp 50-families.conf "/etc/fonts/conf.d/$ffamilies"
+if [ "$localonly" != "" ]; then
+	install -Dm644 vimrc "$HOME/.vimrc"
+	mkdir "$HOME/.fonts"
+	cp -r iosevka-custom "$HOME/.fonts"
+	install -Dm644 50-families.conf "$HOME/.config/fontconfig/conf.d/$ffamilies"
+else
+	cat vimrc | sudo tee -a "$viml" >/dev/null
+	sudo cp -r iosevka-custom /usr/share/fonts
+	sudo install -Dm644 50-families.conf "/etc/fonts/conf.d/$ffamilies"
+fi
+sudo install -Dm644 00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
+sudo install -Dm644 30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 
 if [ "$xcont" != "" ]; then
 	sudo cp 51-xbox-gamepad.rules /etc/udev/rules.d/
 fi
+sudo mkdir -p /etc/polkit-1/rules.d/
 if [ "$psed" != "" ]; then
 	sed "$psed" 49-nopasswd_global.rules | sudo tee /etc/polkit-1/rules.d/49-nopasswd_global.rules >/dev/null
 else
 	sudo cp 49-nopasswd_global.rules /etc/polkit-1/rules.d/
 fi
 if [ "$nvimin" != "" ]; then
-	sudo mkdir -p /etc/xdg/nvim/
-	echo "source $viml"| sudo tee -a /etc/xdg/nvim/sysinit.vim >/dev/null
-	echo "alias vim='nvim'" | sudo tee -a "$zshc" >/dev/null
-	echo "EDITOR=nvim" | sudo tee -a /etc/environment >/dev/null
+	if [ "$localonly" != "" ]; then
+		mkdir -p ~/.config/nvim/
+		echo "source $HOME/.vimrc" > ~/.config/nvim/init.vim
+	else
+		sudo mkdir -p /etc/xdg/nvim/
+		echo "source $viml" | sudo tee -a /etc/xdg/nvim/sysinit.vim >/dev/null
+	fi
+	echo "alias vim='nvim'" | zshcadd -a
+	setenv "EDITOR=nvim"
 else
-	echo "EDITOR=vim" | sudo tee -a /etc/environment >/dev/null
+	setenv "EDITOR=vim"
 fi
 if [ "$picomc" != "" ]; then
-	sudo install -Dm644 picom.conf /etc/xdg/picom.conf
+	if [ "$localonly" != "" ]; then
+		install -Dm644 picom.conf "$HOME/.config/picom.conf"
+	else
+		sudo install -Dm644 picom.conf /etc/xdg/picom.conf
+	fi
 fi
 if [ "$xprofin" != "" ]; then
-	sed "$xprofin" xprofile | sudo tee /etc/xprofile >/dev/null
+	if [ "$localonly" != "" ]; then
+		sed "$xprofin" xprofile > "$HOME/.xprofile"
+	else
+		sed "$xprofin" xprofile | sudo tee /etc/xprofile >/dev/null
+	fi
 fi
-mkdir "$HOME/.config"
 for capp in "${capps[@]}"; do
 	cp -r "$capp" "$HOME/.config"
 done
 for ctheme in "${cthemes[@]}"; do
-	sudo cp -r "$ctheme" "/usr/share/themes"
+	if [ "$localonly" != "" ]; then
+		cp -r "$ctheme" "$HOME/.themes"
+	else
+		sudo cp -r "$ctheme" "/usr/share/themes"
+	fi
 done
