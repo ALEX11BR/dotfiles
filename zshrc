@@ -51,6 +51,9 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 PROMPT='%F{green}%n%f@%F{blue}%m%f %F{magenta}%B%~%b%f %# '
 RPROMPT='%F{red}%(?..%?)'
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
 
 alias ls='ls --color=auto'
 alias sudo='sudo '
