@@ -130,6 +130,7 @@ if [ "$p10kc" != "" ]; then
 EOL
 fi
 echo 'export GOPATH=~/Public/go' >> ~/.profile
+chmod +x ~/.profile
 if [ "$qgset" != "" ]; then
 	setenv "$qgset"
 fi
