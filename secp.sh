@@ -11,7 +11,7 @@ git clone https://aur.archlinux.org/yay.git "$HOME/yay"
 cd "$HOME/yay"
 makepkg -sir
 valids=(cinnamon kde mate xfce lxqt awesome bspwm)
-toinst=nu
+toinst="$1"
 echo "Acum alege ce ai chef să instalezi"
 while [[ ! " ${valids[@]} " =~ " ${toinst} " ]];
 do
@@ -24,7 +24,7 @@ cat pbase.txt | yay -S --needed -
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
 sudo systemctl enable tlp
-sudo systemctl enable org.cups.cupsd.service
+sudo systemctl enable cups
 
 case "$toinst" in
 	"cinnamon" ) cat pcex.txt | yay -S --needed -

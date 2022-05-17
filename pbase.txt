@@ -31,7 +31,6 @@ gimp
 git
 gptfdisk
 gnome-icon-theme
-gnome-ssh-askpass3
 gnome-themes-extra
 grep
 groff
