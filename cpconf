@@ -3,6 +3,7 @@ cd $(dirname $(readlink -f "$0") )
 capps=()
 cthemes=()
 ffamilies=""
+gtkbookm=""
 localonly=""
 nvimin=""
 p10kc=""
@@ -45,6 +46,9 @@ while [ "$1" != "" ]; do
 		-f) # set custom name for fontconfig families file
 			ffamilies="$2"
 			shift
+			;;
+		-gb) # use the set gtk bookmarks
+			gtkbookm="yes"
 			;;
 		-l) # preferably install config files locally
 			localonly="yes"
@@ -160,6 +164,9 @@ fi
 sudo install -Dm644 00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 sudo install -Dm644 30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 
+if [ "$gtkbookm" != "" ]; then
+	install -Dm644 "gtk-3.0/bookmarks" "$HOME/.config/gtk-3.0/bookmarks"
+fi
 if [ "$xcont" != "" ]; then
 	sudo cp 51-xbox-gamepad.rules /etc/udev/rules.d/
 fi
