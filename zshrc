@@ -57,3 +57,13 @@ SAVEHIST=1000
 
 alias ls='ls --color=auto'
 alias sudo='sudo '
+
+l() {
+	if [ -f "$1" ]; then
+		"$EDITOR" "$1"
+	elif [ -z "$1" ]; then
+		ls -lAh
+	else
+		ls -lAh "$1"
+	fi
+}
