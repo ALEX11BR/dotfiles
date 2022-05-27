@@ -137,7 +137,7 @@ if [ "$p10kc" != "" ]; then
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 EOL
 fi
-echo 'export GOPATH=~/Public/go' >> ~/.profile
+echo 'export GOPATH=~/.local/share/go' >> ~/.profile
 if [ "$qgset" != "" ]; then
 	setenv "$qgset"
 fi
