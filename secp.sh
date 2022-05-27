@@ -34,20 +34,20 @@ case "$toinst" in
 	"mate" ) cat pmex.txt | yay -S --needed -
 	         yay -Rs mate-calc
 	         sudo systemctl enable lightdm
-	         bash cpconf -xc -p -qg
+	         bash cpconf -xc -p -qg -gb
 	         ;;
 	"xfce" ) cat pxex.txt | yay -S --needed -
 	         yay -Rs parole orage
 	         sudo systemctl enable lightdm
-	         bash cpconf -xc -p -qg
+	         bash cpconf -xc -p -qg -gb
 	         ;;
 	"awesome" ) cat paex.txt | yay -S --needed -
 	            sudo systemctl enable lightdm
-	            bash cpconf -xc -p -ct oomox-dracula -c termite -c awesome -c sxhkd -xp -qg -pc -t termite
+	            bash cpconf -xc -p -ct oomox-dracula -c termite -c awesome -c sxhkd -xp -qg -pc -gb -t termite
 	            ;;
 	"bspwm" ) cat pbex.txt | yay -S --needed -
 	          sudo systemctl enable lightdm
-	          bash cpconf -xc -p -ct oomox-dracula -c bspwm -c polybar -c sxhkd -c termite -c rofi -xp -qg -pc -t termite
+	          bash cpconf -xc -p -ct oomox-dracula -c bspwm -c polybar -c sxhkd -c termite -c rofi -xp -qg -pc -gb -t termite
 		  ;;
 	"lxqt" ) cat plxqex.txt | yay -S --needed -
 	         sudo systemctl enable sddm
