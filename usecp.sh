@@ -17,9 +17,9 @@ sudo apt-get update
 sudo apt-get install code
 rm packages.microsoft.gpg
 
-sudo apt-get install zsh zsh-autosuggestions zsh-syntax-highlighting git neovim fonts-noto vlc vlc-plugin-fluidsynth libdvdcss2 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav python3-usb fonts-font-awesome
+sudo apt-get install zsh zsh-autosuggestions zsh-syntax-highlighting git neovim fonts-noto vlc vlc-plugin-fluidsynth libdvdcss2 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav python3-usb
 
-bash cpconf -xc -pi -v "/etc/vim/vimrc.local" -ps "s/wheel/sudo/g" -zs "s;/zsh/plugins;;" -ct oomox-dracula -n -f "50-families.conf"
+bash cpconf -xc -ni -pi -v "/etc/vim/vimrc.local" -ps "s/wheel/sudo/g" -zs "s;/zsh/plugins;;" -ct oomox-dracula -n -f "50-families.conf"
 echo '[Do anything you want]
 Identity=unix-group:sudo
 Action=*
