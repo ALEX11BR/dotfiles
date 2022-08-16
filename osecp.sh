@@ -31,5 +31,4 @@ sudo zypper addrepo https://download.opensuse.org/repositories/shells:zsh-users:
 sudo zypper refresh
 sudo zypper install zsh-autosuggestions
 
-bash cpconf -v "/etc/vimrc" -z "/etc/zsh.zshrc.local" -zs "s;/zsh/plugins;;" -f "50-families.conf"
-
+bash cpconf -v "/etc/vimrc" -z "/etc/zsh.zshrc.local" -zs "s;/zsh/plugins;;" -f "50-families.conf" -cc Code

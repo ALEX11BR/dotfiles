@@ -14,6 +14,7 @@ psed=""
 qgset=""
 terml=""
 viml="/etc/vimrc"
+vscopy=""
 xcont=""
 xprofin=""
 zshc="/etc/zsh/zshrc"
@@ -38,6 +39,10 @@ while [ "$1" != "" ]; do
 	case "$1" in 
 		-c) # add folder to copy to .config
 			capps+=("$2")
+			shift
+			;;
+		-cc) # copy vscode config according to the vscode version
+			vscopy="$2"
 			shift
 			;;
 		-ct) # add theme to copy
@@ -211,6 +216,9 @@ if [ "$xprofin" != "" ]; then
 	else
 		sed "$xprofin" xprofile | sudo tee /etc/xprofile >/dev/null
 	fi
+fi
+if [ "$vscopy" != "" ]; then
+	cp -r Code "$HOME/.config/$vscopy"
 fi
 for capp in "${capps[@]}"; do
 	cp -r "$capp" "$HOME/.config"
