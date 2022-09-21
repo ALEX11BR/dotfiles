@@ -1,6 +1,4 @@
-if !has('nvim')
-	set ttymouse=sgr
-endif
+set mouse=a
 
 set termencoding=utf-8
 
