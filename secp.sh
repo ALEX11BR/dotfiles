@@ -32,12 +32,10 @@ case "$toinst" in
 	             bash cpconf -xc -p -qg -cc 'Code - OSS'
 	             ;;
 	"mate" ) cat pmex.txt | yay -S --needed -
-	         yay -Rs mate-calc
 	         sudo systemctl enable lightdm
 	         bash cpconf -xc -p -qg -gb -cc 'Code - OSS'
 	         ;;
 	"xfce" ) cat pxex.txt | yay -S --needed -
-	         yay -Rs parole orage
 	         sudo systemctl enable lightdm
 	         bash cpconf -xc -p -qg -gb -cc 'Code - OSS'
 	         ;;
