@@ -1,4 +1,4 @@
-blueberry
+blueman
 cinnamon
 cinnamon-control-center
 cinnamon-desktop
@@ -6,7 +6,6 @@ cinnamon-menus
 cinnamon-screensaver
 cinnamon-session
 cinnamon-settings-daemon
-cinnamon-sound-effects
 cinnamon-translations
 cjs
 dconf-editor
@@ -15,6 +14,7 @@ gnome-system-monitor
 gnome-terminal
 gvfs-mtp
 lightdm-gtk-greeter-settings
+mint-artwork-cinnamon
 mint-themes
 mint-y-icons
 muffin
