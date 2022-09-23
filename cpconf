@@ -213,8 +213,10 @@ fi
 if [ "$xprofin" != "" ]; then
 	if [ "$localonly" != "" ]; then
 		sed "$xprofin" xprofile > "$HOME/.xprofile"
+		chmod +x "$HOME/.xprofile"
 	else
 		sed "$xprofin" xprofile | sudo tee /etc/xprofile >/dev/null
+		sudo chmod +x /etc/xprofile
 	fi
 fi
 if [ "$vscopy" != "" ]; then
