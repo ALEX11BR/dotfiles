@@ -29,31 +29,31 @@ sudo systemctl enable cups
 case "$toinst" in
 	"cinnamon" ) cat pcex.txt | yay -S --needed -
 	             sudo systemctl enable lightdm
-	             bash cpconf -xc -p -qg -cc 'Code - OSS'
+	             bash cpconf -xc -p -qg -cc 'Code - OSS' -c vlc
 	             ;;
 	"mate" ) cat pmex.txt | yay -S --needed -
 	         sudo systemctl enable lightdm
-	         bash cpconf -xc -p -qg -gb -cc 'Code - OSS'
+	         bash cpconf -xc -p -qg -gb -cc 'Code - OSS' -c vlc
 	         ;;
 	"xfce" ) cat pxex.txt | yay -S --needed -
 	         sudo systemctl enable lightdm
-	         bash cpconf -xc -p -qg -gb -cc 'Code - OSS'
+	         bash cpconf -xc -p -qg -gb -cc 'Code - OSS' -c vlc
 	         ;;
 	"awesome" ) cat paex.txt | yay -S --needed -
 	            sudo systemctl enable lightdm
-	            bash cpconf -xc -p -ct oomox-dracula -cc 'Code - OSS' -c termite -c awesome -c sxhkd -xp -qg -pc -gb -t termite
+	            bash cpconf -xc -p -ct oomox-dracula -cc 'Code - OSS' -c vlc -c termite -c awesome -c sxhkd -xp -qg -pc -gb -t termite
 	            ;;
 	"bspwm" ) cat pbex.txt | yay -S --needed -
 	          sudo systemctl enable lightdm
-	          bash cpconf -xc -p -ct oomox-dracula -cc 'Code - OSS' -c bspwm -c polybar -c sxhkd -c termite -c rofi -xp -qg -pc -gb -t termite
+	          bash cpconf -xc -p -ct oomox-dracula -cc 'Code - OSS' -c vlc -c bspwm -c polybar -c sxhkd -c termite -c rofi -xp -qg -pc -gb -t termite
 		  ;;
 	"lxqt" ) cat plxqex.txt | yay -S --needed -
 	         sudo systemctl enable sddm
-	         bash cpconf -xc -p -cc 'Code - OSS'
+	         bash cpconf -xc -p -cc 'Code - OSS' -c vlc
 		 ;;
 	"kde" ) cat pkdex.txt | yay -S --needed -
 	        sudo systemctl enable sddm
-	        bash cpconf -xc -p -cc 'Code - OSS'
+	        bash cpconf -xc -p -cc 'Code - OSS' -c vlc
 	        ;;
 esac
 rm -rf "$HOME/yay"

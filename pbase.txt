@@ -77,7 +77,6 @@ nvidia-prime
 nvidia-settings
 opencl-nvidia
 openssh
-openttd
 p7zip
 pacman
 pacman-contrib
@@ -100,7 +99,6 @@ soundfont-fluid
 sudo
 texinfo
 texlive-most
-timidity++
 tlp
 ttf-liberation
 ttf-nerd-fonts-symbols-2048-em
@@ -108,6 +106,7 @@ unrar
 unzip
 vim-plugins
 vlc
+vlc-plugin-fluidsynth-bin
 wget
 which
 xdg-user-dirs-gtk
