@@ -67,3 +67,5 @@ l() {
 		ls -lAh "$1"
 	fi
 }
+
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
