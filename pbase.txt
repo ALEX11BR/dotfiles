@@ -104,6 +104,7 @@ ttf-liberation
 ttf-nerd-fonts-symbols-2048-em
 unrar
 unzip
+upower
 vim-plugins
 vlc
 vlc-plugin-fluidsynth-bin
