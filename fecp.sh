@@ -20,12 +20,12 @@ sudo dnf update -y
 sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda vdpauinfo libva-vdpau-driver libva-utils
 sudo dnf install -y flatpak google-noto-\* vlc gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav lame\* libdvdcss playerctl sxhkd python3-pyusb
 sudo dnf install -y zsh zsh-syntax-highlighting zsh-autosuggestions
-sudo dnf install -y neovim git htop wget upower
+sudo dnf install -y neovim git htop wget upower yt-dlp
 sudo dnf install -y alacritty
 echo "max_parallel_downloads=10" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
 echo "fastestmirror=1" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 bash cpconf -v "/etc/vimrc.local" -f "50-families.conf" -ni -n -xc -pi -pc -pr -xs "s/pamac-tray/dnfdragora-updater/" -z "/etc/zshrc" -zs "s;/zsh/plugins;;" -ct oomox-dracula -cc Code -c i3 -c alacritty -c awesome -c qtile -c bspwm -c sxhkd -c rofi -c polybar -t alacritty
 if [ "$1" = "bspwm" ]; then
-	sudo dnf install bspwm polybar rofi picom xsettingsd gnome-keyring udiskie parcellite blueman xfce4-notifyd maim file-roller numlockx network-manager-applet picom udiskie dnfdragora-updater
+	sudo dnf install -y bspwm polybar rofi rofimoji picom xsettingsd gnome-keyring udiskie parcellite blueman xfce4-notifyd maim file-roller numlockx network-manager-applet picom udiskie dnfdragora-updater
 fi

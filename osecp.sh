@@ -21,7 +21,7 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 sudo zypper refresh
 sudo zypper install code
 
-sudo zypper install git zsh gvim noto-\*fonts
+sudo zypper install git zsh gvim noto-\*fonts yt-dlp
 
 sudo zypper addrepo https://download.opensuse.org/repositories/shells:zsh-users:zsh-syntax-highlighting/openSUSE_Tumbleweed/shells:zsh-users:zsh-syntax-highlighting.repo
 sudo zypper refresh
