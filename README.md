@@ -7,7 +7,7 @@ I made some installation scripts for various distros:
 - `secp.sh` for Arch (requires choosing from one of the available DE's/WM's)
 - `vecp.sh` for Void (optionally pass `bspwm` as the first argument to install it + various utilities)
 - `fecp.sh` for Fedora (same thing as above)
-- `usecp.sh` for Ubuntu & friends
+- `usecp.sh` for Ubuntu & friends (same thing as above)
 - `osecp.sh` for OpenSUSE Tumbleweed
 
 Most of them are attended installation scripts, and require confirming package manager prompts (Fedora's script is an exception, as their package manager's prompts default to no as an answer).
