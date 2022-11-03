@@ -11,5 +11,7 @@
         "<C-s>": false,
         "<C-x>": false,
         "<C-z>": false
-    }
+    },
+    "workbench.editor.untitled.hint": "hidden",
+    "files.insertFinalNewline": true
 }
