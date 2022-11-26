@@ -4,7 +4,7 @@ numlockx on &
 pamac-tray &
 
 if [ -z "$XDG_CURRENT_DESKTOP" ] && [ "$DESKTOP_SESSION" != "cinnamon" ]; then
-	xsettingsd &
+	xsettingsd 2>/dev/null &
 	udiskie --smart-tray &
 	sxhkd &
 	parcellite &
