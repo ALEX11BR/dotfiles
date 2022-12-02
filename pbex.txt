@@ -22,4 +22,6 @@ themechanger-git
 udiskie
 xdotool
 xfce4-notifyd
+xsecurelock
 xsettingsd
+xss-lock

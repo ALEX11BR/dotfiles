@@ -17,4 +17,6 @@ sxhkd
 termite
 themechanger-git
 udiskie
+xsecurelock
 xsettingsd
+xss-lock

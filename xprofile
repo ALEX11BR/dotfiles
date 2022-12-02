@@ -11,6 +11,7 @@ if [ -z "$XDG_CURRENT_DESKTOP" ] && [ "$DESKTOP_SESSION" != "cinnamon" ]; then
 	blueman-applet &
 	nm-applet &
 	picom &
+	xss-lock env XSECURELOCK_DISCARD_FIRST_KEYPRESS=0 XSECURELOCK_SHOW_DATETIME=1 XSECURELOCK_DATETIME_FORMAT='%A, %d %b %Y, %H:%M:%S' xsecurelock &
 	if [ "$DESKTOP_SESSION" != "awesome" ]; then
 		/usr/lib/xfce4/notifyd/xfce4-notifyd &
 	fi
