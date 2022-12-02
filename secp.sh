@@ -4,7 +4,7 @@ if [ "$EUID" = 0 ]; then
     echo "Treci pe utilizatorul tău, nu pe root!"
     exit
 fi
-echo -e '[multilib]\nInclude = /etc/pacman.d/mirrorlist' | sudo tee -a /etc/pacman.conf >/dev/null
+grep '^\[multilib\]' /etc/pacman.conf || echo -e '[multilib]\nInclude = /etc/pacman.d/mirrorlist' | sudo tee -a /etc/pacman.conf >/dev/null
 sudo pacman -Syu
 sudo pacman -S git
 git clone https://aur.archlinux.org/yay.git "$HOME/yay"
@@ -19,7 +19,7 @@ do
 	read toinst
 done
 echo "Ne apucăm de instalat un sistem cu $toinst"
-cd $dirl
+cd "$dirl"
 cat pbase.txt | yay -S --needed -
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
