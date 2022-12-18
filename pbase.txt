@@ -32,6 +32,7 @@ git
 gptfdisk
 gnome-icon-theme
 gnome-themes-extra
+gparted
 grep
 groff
 gst-libav
