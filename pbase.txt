@@ -10,6 +10,7 @@ bison
 bluez
 brave-bin
 code
+code-features
 code-marketplace
 cups
 cups-pdf
