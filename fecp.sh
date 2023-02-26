@@ -15,9 +15,17 @@ sudo dnf check-update
 sudo dnf install -y code
 
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo rpm -ivh http://rpm.livna.org/livna-release.rpm
+sudo dnf install -y rpmfusion-free-release-tainted
 sudo dnf update -y
-sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda vdpauinfo libva-vdpau-driver libva-utils
+if [ "$1" = "amd" ]; then
+	sudo dnf swap -y mesa-va-drivers mesa-va-drivers-freeworld
+	sudo dnf swap -y mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+	sudo dnf swap -y mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
+	sudo dnf swap -y mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
+	shift
+else
+	sudo dnf install -y  akmod-nvidia xorg-x11-drv-nvidia-cuda vdpauinfo libva-vdpau-driver libva-utils
+fi
 sudo dnf install -y flatpak google-noto-\* vlc gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav lame\* libdvdcss playerctl sxhkd python3-pyusb
 sudo dnf install -y zsh zsh-syntax-highlighting zsh-autosuggestions
 sudo dnf install -y neovim git htop wget upower yt-dlp
