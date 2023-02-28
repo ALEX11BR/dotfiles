@@ -10,6 +10,20 @@ sudo pacman -S git
 git clone https://aur.archlinux.org/yay.git "$HOME/yay"
 cd "$HOME/yay"
 makepkg -sir
+
+htoinst=""
+hvalids=(amd intelnvidia)
+echo "Acum alege ce profil hardware ai"
+if [ -n "$1" ]; then
+	htoinst="$1"
+	shift
+fi
+while [[ ! " ${hvalids[@]} " =~ " ${htoinst} " ]];
+do
+	echo "(amd,intelnvidia)"
+	read htoinst
+done
+
 valids=(cinnamon kde mate xfce lxqt awesome bspwm)
 toinst="$1"
 echo "Acum alege ce ai chef să instalezi"
@@ -18,6 +32,7 @@ do
 	echo "(cinnamon,kde,mate,xfce,lxqt,awesome,bspwm)"
 	read toinst
 done
+
 echo "Ne apucăm de instalat un sistem cu $toinst"
 cd "$dirl"
 cat pbase.txt | yay -S --needed -
@@ -25,6 +40,13 @@ sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
 sudo systemctl enable tlp
 sudo systemctl enable cups
+
+case "$htoinst" in
+	"amd" ) cat pamd.txt | yay -S --needed -
+	        ;;
+	"intelnvidia" ) cat pinv.txt | yay -S --needed -
+	                ;;
+esac
 
 case "$toinst" in
 	"cinnamon" ) cat pcex.txt | yay -S --needed -

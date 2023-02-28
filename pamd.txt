@@ -1,0 +1,4 @@
+amd-ucode
+lib32-mesa
+libva-mesa-driver
+mesa-vdpau

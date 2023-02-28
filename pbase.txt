@@ -4,6 +4,7 @@ alsa-utils
 autoconf
 automake
 base
+base-devel
 bash-completion
 binutils
 bison
@@ -50,15 +51,11 @@ htop
 hunspell-en_US
 hunspell-ro
 inkscape
-intel-ucode
-lib32-nvidia-utils
 libdvdcss
 libdvdnav
 libreoffice-fresh
 libreoffice-fresh-ro
 libtool
-libva-intel-driver
-libva-vdpau-driver
 linux
 linux-headers
 linux-firmware
@@ -74,10 +71,6 @@ noto-fonts-cjk
 noto-fonts-emoji
 ntfs-3g
 numlockx
-nvidia
-nvidia-prime
-nvidia-settings
-opencl-nvidia
 openssh
 p7zip
 pacman
