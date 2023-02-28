@@ -66,7 +66,7 @@ font-4 = emoji:pixelsize=10;0
 
 modules-left = bspwm i3
 ;modules-center = mpd
-modules-right = xbacklight pulseaudio battery temperature cpu memory date xkeyboard
+modules-right = xbacklight pulseaudio battery batteryt temperature cpu memory date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -365,6 +365,11 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-foreground = ${colors.green}
 animation-charging-framerate = 500
+
+[module/batteryt]
+inherit = module/battery
+battery = BATT
+adapter = ACAD
 
 [module/temperature]
 type = internal/temperature
