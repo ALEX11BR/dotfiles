@@ -26,7 +26,7 @@ ctrl + shift + Escape
 
 # screenshot
 Print
-	maim ~/Pictures/$(date +%s).png && notify-send 'Screenshot saved!'
+	filename=$(date +Screenshot%s%3N.png); maim ~/Pictures/$filename && notify-send "Screenshot saved!" "Filename: $filename."
 
 # volume +
 XF86AudioRaiseVolume
@@ -66,3 +66,7 @@ XF86MonBrightnessDown
 # make sxhkd reload its configuration files:
 super + alt + s
 	pkill -USR1 -x sxhkd
+
+# poweroff menu
+super + alt + q
+	rofi -show p -modi "p:$HOME/.config/rofi/rofi-power-menu.sh"

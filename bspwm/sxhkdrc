@@ -3,7 +3,7 @@
 #
 
 # quit/restart bspwm
-super + alt + {q,r}
+super + alt + {w,r}
 	bspc {quit,wm -r}
 
 # close and kill
