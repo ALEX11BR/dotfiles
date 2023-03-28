@@ -17,10 +17,10 @@ sudo apt-get update
 sudo apt-get install code
 rm packages.microsoft.gpg
 
-sudo apt-get install zsh zsh-autosuggestions zsh-syntax-highlighting git neovim yt-dlp fonts-noto vlc vlc-plugin-fluidsynth libdvdcss2 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav python3-usb
+sudo apt-get install zsh zsh-autosuggestions zsh-syntax-highlighting git neovim yt-dlp fonts-noto sxhkd xclip vlc vlc-plugin-fluidsynth libdvdcss2 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav python3-usb
 
 if [ "$1" = "bspwm" ]; then
-	sudo apt-get install bspwm sxhkd polybar picom parcellite gmrun kitty maim numlockx xss-lock xsecurelock udiskie rofi network-manager-gnome blueman notification-daemon xsettingsd gnome-keyring
+	sudo apt-get install bspwm polybar picom parcellite gmrun kitty maim numlockx xss-lock xsecurelock udiskie rofi network-manager-gnome blueman notification-daemon xsettingsd gnome-keyring
 fi
 
 bash cpconf -xc -ni -pi -v "/etc/vim/vimrc.local" -ps "s/wheel/sudo/g" -zs "s;/zsh/plugins;;" -ct oomox-dracula -n -f "50-families.conf" -cc Code -c i3 -c awesome -c qtile -c bspwm -c polybar -c sxhkd -c rofi -c kitty -pc -xp -xs "s;xfce4/notifyd/xfce4-notifyd;notification-daemon/notification-daemon;" -t kitty

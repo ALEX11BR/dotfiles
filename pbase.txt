@@ -105,6 +105,7 @@ vlc
 vlc-plugin-fluidsynth-bin
 wget
 which
+xclip
 xdg-user-dirs-gtk
 xorg-server
 xorg-xinit

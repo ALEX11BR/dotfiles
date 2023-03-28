@@ -24,9 +24,12 @@ super + period
 ctrl + shift + Escape
 	$TERMINAL -e htop
 
-# screenshot
-Print
-	filename=$(date +Screenshot%s%3N.png); maim ~/Pictures/$filename && notify-send "Screenshot saved!" "Filename: $filename."
+# screenshot to file
+{_,shift + }Print
+	filename=$(date +"Screenshot %Y-%m-%d %H-%M-%S-%3N.png"); maim {_,-s -b 3} ~/Pictures/$filename && notify-send "Screenshot saved!" "Filename: $filename."
+# screenshot to clipboard
+{ctrl,ctrl + shift} + Print
+	maim {_,-s -b 3} | xclip -selection clipboard -t image/png
 
 # volume +
 XF86AudioRaiseVolume
