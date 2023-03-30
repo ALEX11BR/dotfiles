@@ -66,7 +66,7 @@ font-4 = emoji:pixelsize=10;0
 
 modules-left = bspwm i3
 ;modules-center = mpd
-modules-right = xbacklight pulseaudio battery batteryt temperature cpu memory date xkeyboard
+modules-right = xbacklight backlight-acpi pulseaudio battery batteryt temperature cpu memory date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -208,14 +208,25 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label>
+format = <label> <ramp>
 format-underline = ${colors.yellow}
 label = Luminozitate: %percentage%%
+
+ramp-0 = 󰛩
+ramp-0-foreground = ${colors.magenta}
+ramp-1 = 󱩐
+ramp-2 = 󱩒
+ramp-3 = 󱩔
+ramp-4 = 󰛨
+ramp-4-foreground = ${colors.green}
+ramp-foreground = ${colors.yellow}
+
+enable-scroll = true
 
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
-card = intel_backlight
+card = amdgpu_bl0
 
 [module/cpu]
 type = internal/cpu
@@ -334,6 +345,7 @@ battery = BAT0
 adapter = ADP1
 ;full-at = 98
 poll-interval = 0.2
+time-format = %H:%M
 
 format-charging = <label-charging> <animation-charging>
 format-charging-underline = ${colors.green}
@@ -370,6 +382,8 @@ animation-charging-framerate = 500
 inherit = module/battery
 battery = BATT
 adapter = ACAD
+
+label-charging = Baterie: %percentage%% (%time%)
 
 [module/temperature]
 type = internal/temperature
