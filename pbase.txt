@@ -95,6 +95,7 @@ sudo
 texinfo
 texlive-most
 tlp
+ttf-dejavu
 ttf-liberation
 ttf-nerd-fonts-symbols-2048-em
 unrar
