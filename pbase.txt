@@ -88,6 +88,7 @@ qalculate-gtk
 qbittorrent
 qt5-styleplugins
 qt5-svg
+qt6gtk2
 rhythmbox
 sed
 soundfont-fluid
