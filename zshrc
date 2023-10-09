@@ -39,6 +39,7 @@ bindkey "^[[1;5B" down-line-or-beginning-search
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey "^[." insert-last-word
+bindkey '^R' history-incremental-search-backward
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
