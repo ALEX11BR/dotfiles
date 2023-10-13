@@ -31,6 +31,7 @@ font pango:sans 10
 #exec --no-startup-id nm-applet
 #exec --no-startup-id udiskie --smart-tray
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh example
+exec --no-startup-id wmname LG3D
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

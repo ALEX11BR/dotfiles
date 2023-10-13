@@ -51,6 +51,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 terminal = os.getenv("TERMINAL") or "termite"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
+awful.spawn('wmname LG3D', false)
 -- awful.spawn('nm-applet', false)
 -- awful.spawn.with_shell('pgrep udiskie || udiskie --tray')
 -- Default modkey.

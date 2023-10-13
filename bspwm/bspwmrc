@@ -2,6 +2,7 @@
 
 $HOME/.config/polybar/launch.sh nonexample &
 killall sxhkd ; sxhkd $HOME/.config/bspwm/sxhkdrc &
+wmname LG3D
 
 bspc config border_width          4
 #bspc config bottom_padding       10

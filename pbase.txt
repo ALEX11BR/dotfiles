@@ -107,6 +107,7 @@ vlc
 vlc-plugin-fluidsynth-bin
 wget
 which
+wmname
 xclip
 xdg-user-dirs-gtk
 xorg-server
