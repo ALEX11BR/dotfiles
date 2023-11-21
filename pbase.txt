@@ -71,11 +71,12 @@ noto-fonts-cjk
 noto-fonts-emoji
 ntfs-3g
 numlockx
+openbsd-netcat
 openssh
 p7zip
 pacman
 pacman-contrib
-pamac-aur
+pamac-classic
 patch
 pavucontrol
 pkgconf
