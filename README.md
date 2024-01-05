@@ -17,3 +17,6 @@ They usually install Brave, VSCode, nVidia drivers, zsh with plugins, other usef
 *Why these names?* I used to store these dotfiles on a thumb drive under a folder called `secp` (I can't remember why). I decided to add a script to replicate the Arch setup I had and loved, and called it after the folder. Then, I distrohopped some more, and wanted to do the same thing for some various distros, and decided to name these scripts after the initial `secp` thing, but with the first letter borrowed from the distro name.
 
 `cpconf` is a bash script that handles the common logic of configuring the system the way I like it. It has various command line flags described in the file.
+
+## Windows configuration script
+`wecp.cmd` and the scripts in `windows` are for configuring a Windows (11, probably 10 too) system with a bunch of stuff.

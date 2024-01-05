@@ -2,7 +2,7 @@
     "workbench.colorTheme": "Dracula Refined",
     "security.workspace.trust.enabled": false,
     "editor.wordWrap": "on",
-    "editor.fontFamily": "'monospace', monospace, 'Symbols Nerd Font'",
+    "editor.fontFamily": "'Iosevka Custom', monospace, 'Symbols Nerd Font'",
     "mesonbuild.buildFolder": "build",
     "vim.handleKeys": {
         "<C-a>": false,
@@ -13,5 +13,6 @@
         "<C-z>": false
     },
     "workbench.editor.untitled.hint": "hidden",
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true
 }
