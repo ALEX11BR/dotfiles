@@ -96,7 +96,8 @@ sed
 soundfont-fluid
 sudo
 texinfo
-texlive-most
+texlive
+texlive-langeuropean
 tlp
 ttf-dejavu
 ttf-liberation

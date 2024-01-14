@@ -1,11 +1,15 @@
+ark
 dolphin-plugins
 ffmpegthumbs
+gwenview
 kdegraphics-thumbnailers
 kio-admin
 kio-extras
 kio-fuse
 kio-gdrive
+kolourpaint
 konsole
+okular
 packagekit-qt5
 phonon-qt5-vlc
 plasma-meta
