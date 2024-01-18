@@ -13,5 +13,6 @@ okular
 packagekit-qt5
 phonon-qt5-vlc
 plasma-meta
+plasma-wayland-session
 print-manager
 xsettingsd
