@@ -1,0 +1,165 @@
+{
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces", "sway/mode", "sway/scratchpad"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["idle_inhibitor", "backlight", "pulseaudio", "battery", "temperature", "cpu", "memory", "battery#bat2", "network", "clock", "keyboard-state", "tray"],
+    // Modules configuration
+    // "sway/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "warp-on-scroll": false,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "mpris": {
+        "format": "Media: {status_icon} {dynamic}",
+        "unknown-tag": "N/A",
+        "interval": 1,
+        "status-icons": {
+            "paused": "",
+            "playing": "",
+			"stopped": ""
+        },
+    },
+    "idle_inhibitor": {
+        "format": "Inhibare inactivitate: {icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 2,
+			"format": {
+				"today": "<b><u>{}</u></b>",
+			}
+		},
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"interval": 1,
+        "format": "{:%d %b %Y   %H:%M:%S }"
+    },
+    "cpu": {
+		"interval": 1,
+        "format": "CPU: {usage}% ",
+        "tooltip": true
+    },
+    "memory": {
+		"interval": 1,
+        "format": "RAM: {used} GiB ",
+		"tooltip-format": "Memorie disponibilă: {avail} GiB\nMemorie totală: {total} GiB"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+		"interval": 1,
+        "critical-threshold": 70,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "Temperatură: {temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "Luminozitate: {percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+		"interval": 2,
+        "format": "Baterie: {capacity}% ({time}) {icon}",
+        "format-charging": "Baterie: {capacity}% ({time}) {icon} 󱐋",
+        "format-full": "Baterie încărcată: 100% ",
+        //"format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+		"interval": 1,
+        "format-wifi": "WiFi: {essid} ({signalStrength}%) ",
+        "format-ethernet": "Conectat prin cablu 󰌘",
+        "tooltip-format": "IP Local: {ipaddr}/{cidr}\nInterfață: {ifname} via {gwaddr}",
+        //"format-linked": "Fără IP 󰌘⚠",
+        "format-disconnected": "Fără conexiune 󰌙",
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "Volum: {volume}% {icon}",
+        "format-bluetooth": "Volum: {volume}%  {icon}",
+        "format-bluetooth-muted": "Volum: 0%  󰖁",
+        "format-muted": "Volum: 0% 󰖁",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            //"headphone": "",
+            //"hands-free": "󰋎",
+            //"headset": "󰋎",
+            //"phone": "",
+            //"portable": "",
+            //"car": "",
+            "default": ["", "", ""]
+        },
+        "on-click-right": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+}
+
