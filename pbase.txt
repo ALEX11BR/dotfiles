@@ -80,11 +80,11 @@ pacman-contrib
 pamac-classic
 patch
 pavucontrol
+pipewire
+pipewire-alsa
+pipewire-pulse
 pkgconf
 playerctl
-pulseaudio
-pulseaudio-alsa
-pulseaudio-bluetooth
 python-pyusb
 qalculate-gtk
 qbittorrent

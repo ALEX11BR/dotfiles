@@ -2,6 +2,7 @@ ark
 dolphin-plugins
 ffmpegthumbs
 gwenview
+kamoso
 kdegraphics-thumbnailers
 kio-admin
 kio-extras
