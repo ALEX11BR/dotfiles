@@ -15,10 +15,14 @@ Set-ExecutionPolicy Bypass
 
 Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
 
-winget install 7zip.7zip
-winget install Microsoft.VisualStudioCode
-winget install Qalculate.Qalculate
-winget install valinet.ExplorerPatcher
+winget install --id 7zip.7zip
+winget install --id clsid2.mpc-hc
+winget install --id Git.Git
+winget install --id Microsoft.VisualStudioCode
+winget install --id Qalculate.Qalculate
+winget install --id qBittorrent.qBittorrent
+winget install --id valinet.ExplorerPatcher
+wsl --install
 
 foreach ($FontFile in (Get-ChildItem -Path $PSScriptRoot\..\iosevka-custom)) {
     if ($FontFile -like "*.ttf") {
@@ -26,4 +30,6 @@ foreach ($FontFile in (Get-ChildItem -Path $PSScriptRoot\..\iosevka-custom)) {
     }
 }
 
+regedit /s "$PSScriptRoot\ExplorerPatcher.reg"
+regedit /s "$PSScriptRoot\HoverToFocus.reg"
 regedit /s "$PSScriptRoot\oktime.reg"
