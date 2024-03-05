@@ -78,4 +78,7 @@ case "$toinst" in
 	        bash cpconf -xc -p -cc 'Code' -c vlc -c qalculate
 	        ;;
 esac
+
+systemctl enable --user gcr-ssh-agent.service && echo 'export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/gcr/ssh' >> ~/.profile
+
 rm -rf "$HOME/yay"
