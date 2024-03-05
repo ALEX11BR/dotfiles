@@ -51,31 +51,31 @@ esac
 case "$toinst" in
 	"cinnamon" ) cat pcex.txt | yay -S --needed -
 	             sudo systemctl enable lightdm
-	             bash cpconf -xc -p -qg -cc 'Code' -c vlc -c qalculate
+	             bash cpconf -pr -xc -p -qg -cc 'Code' -c vlc -c qalculate
 	             ;;
 	"mate" ) cat pmex.txt | yay -S --needed -
 	         sudo systemctl enable lightdm
-	         bash cpconf -xc -p -qg -gb -cc 'Code' -c vlc -c qalculate
+	         bash cpconf -pr -xc -p -qg -gb -cc 'Code' -c vlc -c qalculate
 	         ;;
 	"xfce" ) cat pxex.txt | yay -S --needed -
 	         sudo systemctl enable lightdm
-	         bash cpconf -xc -p -qg -gb -cc 'Code' -c vlc -c qalculate
+	         bash cpconf -pr -xc -p -qg -gb -cc 'Code' -c vlc -c qalculate
 	         ;;
 	"awesome" ) cat paex.txt | yay -S --needed -
 	            sudo systemctl enable lightdm
-	            bash cpconf -xc -p -ct oomox-dracula -cc 'Code' -c vlc -c qalculate -c termite -c awesome -c sxhkd -xp -qg -pc -gb -t termite
+	            bash cpconf -pr -xc -p -ct oomox-dracula -cc 'Code' -c vlc -c qalculate -c termite -c awesome -c sxhkd -xp -qg -pc -gb -t termite
 	            ;;
 	"bspwm" ) cat pbex.txt | yay -S --needed -
 	          sudo systemctl enable lightdm
-	          bash cpconf -xc -p -ct oomox-dracula -cc 'Code' -c vlc -c qalculate -c bspwm -c polybar -c sxhkd -c termite -c rofi -xp -qg -pc -gb -t termite
+	          bash cpconf -pr -xc -p -ct oomox-dracula -cc 'Code' -c vlc -c qalculate -c bspwm -c polybar -c sxhkd -c termite -c rofi -xp -qg -pc -gb -t termite
 		  ;;
 	"lxqt" ) cat plxqex.txt | yay -S --needed -
 	         sudo systemctl enable sddm
-	         bash cpconf -xc -p -cc 'Code' -c vlc -c qalculate
+	         bash cpconf -pr -xc -p -cc 'Code' -c vlc -c qalculate
 		 ;;
 	"kde" ) cat pkdex.txt | yay -S --needed -
 	        sudo systemctl enable sddm
-	        bash cpconf -xc -p -cc 'Code' -c vlc -c qalculate
+	        bash cpconf -pr -xc -p -cc 'Code' -c vlc -c qalculate
 	        ;;
 esac
 
