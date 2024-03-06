@@ -1,3 +1,4 @@
+alacritty
 awesome
 blueman
 gmrun
@@ -14,7 +15,6 @@ papirus-icon-theme
 parcellite
 picom
 sxhkd
-termite
 themechanger-git
 udiskie
 xsecurelock

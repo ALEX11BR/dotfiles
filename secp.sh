@@ -63,11 +63,11 @@ case "$toinst" in
 	         ;;
 	"awesome" ) cat paex.txt | yay -S --needed -
 	            sudo systemctl enable lightdm
-	            bash cpconf -pr -xc -p -ct oomox-dracula -cc 'Code' -c vlc -c qalculate -c termite -c awesome -c sxhkd -xp -qg -pc -gb -t termite
+	            bash cpconf -pr -xc -p -ct oomox-dracula -cc 'Code' -c vlc -c qalculate -c alacritty -c awesome -c sxhkd -xp -qg -pc -gb -t alacritty
 	            ;;
 	"bspwm" ) cat pbex.txt | yay -S --needed -
 	          sudo systemctl enable lightdm
-	          bash cpconf -pr -xc -p -ct oomox-dracula -cc 'Code' -c vlc -c qalculate -c bspwm -c polybar -c sxhkd -c termite -c rofi -xp -qg -pc -gb -t termite
+	          bash cpconf -pr -xc -p -ct oomox-dracula -cc 'Code' -c vlc -c qalculate -c bspwm -c polybar -c sxhkd -c alacritty -c rofi -xp -qg -pc -gb -t alacritty
 		  ;;
 	"lxqt" ) cat plxqex.txt | yay -S --needed -
 	         sudo systemctl enable sddm
