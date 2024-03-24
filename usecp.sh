@@ -18,6 +18,7 @@ sudo apt-get install code
 rm packages.microsoft.gpg
 
 sudo apt-get install zsh zsh-autosuggestions zsh-syntax-highlighting git neovim yt-dlp fonts-noto sxhkd xclip qalculate-gtk vlc vlc-plugin-fluidsynth libdvdcss2 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav python3-usb
+sudo apt-get install texlive-base texlive-bibtex-extra texlive-binaries texlive-fonts-extra texlive-fonts-recommended texlive-font-utils texlive-formats-extra texlive-games texlive-humanities texlive-latex-extra texlive-latex-recommended texlive-luatex texlive-science texlive-metapost texlive-music texlive-pictures texlive-plain-generic texlive-pstricks texlive-publishers texlive-xetex texlive-lang-english texlive-lang-european
 
 if [ "$1" = "bspwm" ]; then
 	sudo apt-get install bspwm polybar picom parcellite gmrun kitty maim numlockx suckless-tools xss-lock xsecurelock udiskie rofi network-manager-gnome blueman notification-daemon xsettingsd gnome-keyring
