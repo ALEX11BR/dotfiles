@@ -22,6 +22,8 @@ winget install --id Microsoft.VisualStudioCode
 winget install --id Qalculate.Qalculate
 winget install --id qBittorrent.qBittorrent
 winget install --id valinet.ExplorerPatcher
+winget install --id Mozilla.Firefox
+winget install --id TheDocumentFoundation.LibreOffice
 wsl --install
 
 foreach ($FontFile in (Get-ChildItem -Path $PSScriptRoot\..\iosevka-custom)) {
