@@ -1,8 +1,8 @@
 #!/bin/bash
 cd $(dirname $(readlink -f "$0") )
 if [ "$EUID" = 0 ]; then
-    echo "Treci pe utilizatorul tău, nu pe root!"
-    exit
+	echo "Treci pe utilizatorul tău, nu pe root!"
+	exit
 fi
 sudo apt install apt-transport-https curl
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
@@ -30,4 +30,3 @@ Identity=unix-group:sudo
 Action=*
 ResultActive=yes' | sudo tee /var/lib/polkit-1/localauthority/50-local.d/disable-passwords.pkla >/dev/null
 sudo dpkg-reconfigure libdvd-pkg
-
