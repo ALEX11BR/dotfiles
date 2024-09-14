@@ -17,14 +17,14 @@ sudo apt-get update
 sudo apt-get install code
 rm packages.microsoft.gpg
 
-sudo apt-get install zsh zsh-autosuggestions zsh-syntax-highlighting git neovim yt-dlp fonts-noto sxhkd xclip qalculate-gtk vlc vlc-plugin-fluidsynth libdvdcss2 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav python3-usb
+sudo apt-get install zsh zsh-autosuggestions zsh-syntax-highlighting git neovim yt-dlp fonts-noto sxhkd numlockx xclip qalculate-gtk vlc vlc-plugin-fluidsynth libdvdcss2 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav python3-usb python-is-python3
 sudo apt-get install latexmk texlive-base texlive-bibtex-extra texlive-binaries texlive-fonts-extra texlive-fonts-recommended texlive-font-utils texlive-formats-extra texlive-games texlive-humanities texlive-latex-extra texlive-latex-recommended texlive-luatex texlive-science texlive-metapost texlive-music texlive-pictures texlive-plain-generic texlive-pstricks texlive-publishers texlive-xetex texlive-lang-english texlive-lang-european
 
 if [ "$1" = "bspwm" ]; then
-	sudo apt-get install bspwm polybar picom parcellite gmrun kitty maim numlockx suckless-tools xss-lock xsecurelock udiskie rofi network-manager-gnome blueman notification-daemon xsettingsd gnome-keyring
+	sudo apt-get install bspwm polybar picom parcellite gmrun kitty maim suckless-tools xss-lock xsecurelock udiskie rofi network-manager-gnome blueman notification-daemon xsettingsd gnome-keyring
 fi
 
-bash cpconf -xc -ni -pi -v "/etc/vim/vimrc.local" -ps "s/wheel/sudo/g" -zs "s;/zsh/plugins;;" -ct oomox-dracula -n -f "50-families.conf" -cc Code -c qalculate -c i3 -c awesome -c qtile -c bspwm -c polybar -c sxhkd -c rofi -c kitty -pc -xp -xs "s;xfce4/notifyd/xfce4-notifyd;notification-daemon/notification-daemon;" -t kitty
+bash cpconf -xc -ni -pi -v "/etc/vim/vimrc.local" -ps "s/wheel/sudo/g" -zs "s;/zsh/plugins;;" -ct oomox-dracula -n -f "50-families.conf" -cc Code -c qalculate -c i3 -c awesome -c qtile -c bspwm -c polybar -c sxhkd -c rofi -c kitty -pc -xp -xs "/^pamac-tray \\&/d;s|xfce4/notifyd/xfce4-notifyd|notification-daemon/notification-daemon|" -t kitty
 echo '[Do anything you want]
 Identity=unix-group:sudo
 Action=*
