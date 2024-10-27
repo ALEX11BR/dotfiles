@@ -179,6 +179,8 @@ fi
 sudo install -Dm644 00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 sudo install -Dm644 30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 
+sudo install -Dm644 10-unqualified-search-registries.conf /etc/containers/registries.conf.d/10-unqualified-search-registries.conf
+
 if [ "$gtkbookm" != "" ]; then
 	install -Dm644 "gtk-3.0/bookmarks" "$HOME/.config/gtk-3.0/bookmarks"
 fi
