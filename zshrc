@@ -65,6 +65,7 @@ SAVEHIST=1000
 
 alias ls='ls --color=auto'
 alias sudo='sudo '
+alias py='python3'
 
 l() {
 	if [ -f "$1" ]; then
