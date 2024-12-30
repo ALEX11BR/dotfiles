@@ -15,6 +15,6 @@ if [ -z "$XDG_CURRENT_DESKTOP" ] && [ "$DESKTOP_SESSION" != "cinnamon" ]; then
 	if [ "$DESKTOP_SESSION" != "awesome" ]; then
 		/usr/lib/xfce4/notifyd/xfce4-notifyd &
 	fi
-	eval $(/usr/bin/gnome-keyring-daemon --start)
+	eval $(/usr/bin/gnome-keyring-daemon --start 2>/dev/null)
 	export SSH_AUTH_SOCK
 fi

@@ -5,6 +5,8 @@
 # terminal emulator
 super + Return
 	$TERMINAL
+ctrl + alt + t
+	$TERMINAL
 
 # open default file manager
 super + e
