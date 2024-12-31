@@ -126,7 +126,8 @@ mkdir "$HOME/.config"
 mkdir "$HOME/.themes"
 
 if [ "$nerdin" != "" ]; then
-	sudo wget --directory-prefix /usr/local/share/fonts "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/2.1.0/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf"
+	sudo wget --directory-prefix /usr/local/share/fonts "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.3.0/patched-fonts/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf"
+	sudo wget --directory-prefix /usr/local/share/fontconfig/conf.avail "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.3.0/10-nerd-font-symbols.conf"
 fi
 
 if [ "$p10kc" = "install" ]; then
