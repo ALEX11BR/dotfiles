@@ -9,7 +9,6 @@ bash-completion
 binutils
 bison
 bluez
-brave-bin
 code
 code-features
 code-marketplace
@@ -22,6 +21,9 @@ fakeroot
 ffmpegthumbnailer
 file
 findutils
+firefox
+firefox-dark-reader
+firefox-ublock-origin
 flex
 fuseiso
 gawk
@@ -51,6 +53,7 @@ htop
 hunspell-en_US
 hunspell-ro
 inkscape
+less
 libdvdcss
 libdvdnav
 libreoffice-fresh
@@ -61,7 +64,7 @@ linux-firmware
 linux-headers
 m4
 make
-man-db
+mandoc
 man-pages
 nano
 neofetch

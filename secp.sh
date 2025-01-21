@@ -41,6 +41,10 @@ sudo systemctl enable bluetooth
 sudo systemctl enable tlp
 sudo systemctl enable cups
 
+(grep '^en_US\.UTF-8 UTF-8' /etc/locale.gen > /dev/null) || (echo 'en_US.UTF-8 UTF-8' | sudo tee -a /etc/locale.gen > /dev/null)
+(grep '^ro_RO\.UTF-8 UTF-8' /etc/locale.gen > /dev/null) || (echo 'ro_RO.UTF-8 UTF-8' | sudo tee -a /etc/locale.gen > /dev/null)
+sudo cp locale.conf /etc/locale.conf
+
 case "$htoinst" in
 	"amd" ) cat pamd.txt | yay -S --needed -
 	        ;;
