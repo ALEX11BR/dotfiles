@@ -5,8 +5,7 @@ if [ "$EUID" = 0 ]; then
     exit
 fi
 sudo dnf install -y dnf-plugins-core
-sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
-sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 sudo dnf install -y brave-browser
 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -33,7 +32,11 @@ sudo dnf install -y alacritty
 echo "max_parallel_downloads=10" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
 echo "fastestmirror=1" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-bash cpconf -v "/etc/vimrc.local" -f "50-families.conf" -ni -n -xc -pi -pc -pr -xs "s/pamac-tray/dnfdragora-updater/" -z "/etc/zshrc" -zs "s;/zsh/plugins;;" -ct oomox-dracula -cc Code -c qalculate -c i3 -c alacritty -c awesome -c qtile -c bspwm -c sxhkd -c rofi -c polybar -t alacritty
+
+sudo mkdir -p /etc/X11/xinit/xinitrc.d/
+echo -e '#!/bin/sh\n[ -f /etc/xprofile ] && . /etc/xprofile' | sudo tee /etc/X11/xinit/xinitrc.d/60-profile.sh >/dev/null
+
+bash cpconf -v "/etc/vimrc.local" -f "50-families.conf" -ni -n -xc -pi -pc -pr -xs "s/pamac-tray/dnfdragora-updater/;s|/usr/lib/xfce4/notifyd/xfce4-notifyd|/usr/lib64/xfce4/notifyd/xfce4-notifyd|" -z "/etc/zshrc" -zs "s;/zsh/plugins;;" -ct oomox-dracula -cc Code -c qalculate -c i3 -c alacritty -c awesome -c qtile -c bspwm -c sxhkd -c rofi -c polybar -t alacritty
 if [ "$1" = "bspwm" ]; then
 	sudo dnf install -y bspwm polybar rofi rofimoji picom xsettingsd wmname xss-lock xsecurelock gnome-keyring parcellite blueman xfce4-notifyd maim file-roller numlockx network-manager-applet udiskie dnfdragora-updater
 fi
