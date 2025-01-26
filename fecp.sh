@@ -38,5 +38,5 @@ echo -e '#!/bin/sh\n[ -f /etc/xprofile ] && . /etc/xprofile' | sudo tee /etc/X11
 
 bash cpconf -v "/etc/vimrc.local" -f "50-families.conf" -ni -n -xc -pi -pc -pr -xs "s/pamac-tray/dnfdragora-updater/;s|/usr/lib/xfce4/notifyd/xfce4-notifyd|/usr/lib64/xfce4/notifyd/xfce4-notifyd|" -z "/etc/zshrc" -zs "s;/zsh/plugins;;" -ct oomox-dracula -cc Code -c qalculate -c i3 -c alacritty -c awesome -c qtile -c bspwm -c sxhkd -c rofi -c polybar -t alacritty
 if [ "$1" = "bspwm" ]; then
-	sudo dnf install -y bspwm polybar rofi rofimoji picom xsettingsd wmname xss-lock xsecurelock gnome-keyring parcellite blueman xfce4-notifyd maim file-roller numlockx network-manager-applet udiskie dnfdragora-updater
+	sudo dnf install -y bspwm polybar rofi rofimoji picom xsettingsd wmname xss-lock xsecurelock gnome-keyring parcellite blueman xfce4-notifyd feh maim file-roller numlockx network-manager-applet udiskie dnfdragora-updater
 fi
