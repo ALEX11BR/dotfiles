@@ -41,7 +41,7 @@ icons[cancel]="\u00d7"
 declare -A actions
 actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
 #actions[switchuser]="???"
-actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
+actions[logout]="loginctl kill-session ${XDG_SESSION_ID-}"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
 actions[reboot]="systemctl reboot"
