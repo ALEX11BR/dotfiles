@@ -3,6 +3,7 @@ dolphin-plugins
 ffmpegthumbs
 gwenview
 kamoso
+kate
 kdegraphics-thumbnailers
 kio-admin
 kio-extras
@@ -11,9 +12,9 @@ kio-gdrive
 kolourpaint
 konsole
 okular
-packagekit-qt5
-phonon-qt5-vlc
+packagekit-qt6
+phonon-qt6-vlc
 plasma-meta
-plasma-wayland-session
 print-manager
+qt6-multimedia-ffmpeg
 xsettingsd
