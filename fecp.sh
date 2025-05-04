@@ -27,8 +27,9 @@ else
 fi
 sudo dnf install -y flatpak google-noto-\* vlc gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav lame\* libdvdcss unrar playerctl xclip qalculate-gtk sxhkd python3-pyusb
 sudo dnf install -y zsh zsh-syntax-highlighting zsh-autosuggestions
-sudo dnf install -y neovim git htop wget upower yt-dlp gcr
+sudo dnf install -y neovim git htop wget upower yt-dlp
 sudo dnf install -y alacritty
+sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
 echo "max_parallel_downloads=10" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
 echo "fastestmirror=1" | sudo tee -a /etc/dnf/dnf.conf >/dev/null
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -36,7 +37,16 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 sudo mkdir -p /etc/X11/xinit/xinitrc.d/
 echo -e '#!/bin/sh\n[ -f /etc/xprofile ] && . /etc/xprofile' | sudo tee /etc/X11/xinit/xinitrc.d/60-profile.sh >/dev/null
 
-systemctl enable --user gcr-ssh-agent.service && echo 'export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/gcr/ssh' >> ~/.profile
+if [ "$1" = "kde" ]; then
+	cat >> "$HOME/.profile" <<EOF
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS_REQUIRE=prefer
+EOF
+	shift
+else
+	sudo dnf install -y gcr
+	systemctl enable --user gcr-ssh-agent.service && echo 'export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/gcr/ssh' >> ~/.profile
+fi
 
 bash cpconf -v "/etc/vimrc.local" -f "50-families.conf" -ni -n -xc -pi -pc -pr -xs "s/pamac-tray/dnfdragora-updater/;s|/usr/lib/xfce4/notifyd/xfce4-notifyd|/usr/lib64/xfce4/notifyd/xfce4-notifyd|" -z "/etc/zshrc" -zs "s;/zsh/plugins;;" -ct oomox-dracula -cc Code -c qalculate -c i3 -c alacritty -c awesome -c qtile -c bspwm -c sxhkd -c rofi -c polybar -t alacritty
 if [ "$1" = "bspwm" ]; then
