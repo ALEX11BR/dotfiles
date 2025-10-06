@@ -14,6 +14,7 @@ function InstallFont {
 Set-ExecutionPolicy Bypass
 
 Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+Add-AppxPackage https://aka.ms/getwinget
 
 winget install --id 7zip.7zip
 winget install --id clsid2.mpc-hc
