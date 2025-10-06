@@ -25,7 +25,7 @@ if [ "$1" = "amd" ]; then
 else
 	sudo dnf install -y  akmod-nvidia xorg-x11-drv-nvidia-cuda vdpauinfo libva-vdpau-driver libva-utils
 fi
-sudo dnf install -y flatpak google-noto-\* vlc gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav lame\* libdvdcss unrar playerctl xclip qalculate-gtk sxhkd python3-pyusb
+sudo dnf install -y flatpak google-noto-\* vlc gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav lame\* libdvdcss unrar playerctl texlive-scheme-medium xclip qalculate-gtk sxhkd python3-pyusb
 sudo dnf install -y zsh zsh-syntax-highlighting zsh-autosuggestions
 sudo dnf install -y neovim git htop wget upower yt-dlp
 sudo dnf install -y alacritty
