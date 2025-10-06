@@ -1,7 +1,5 @@
 set mouse=a
 
-set termencoding=utf-8
-
 set showcmd
 set incsearch
 set number
