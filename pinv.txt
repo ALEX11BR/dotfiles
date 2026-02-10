@@ -2,7 +2,7 @@ intel-ucode
 lib32-nvidia-utils
 libva-intel-driver
 libva-vdpau-driver
-nvidia
+nvidia-open
 nvidia-prime
 nvidia-settings
 opencl-nvidia

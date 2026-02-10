@@ -44,8 +44,6 @@ gst-plugins-bad
 gst-plugins-base
 gst-plugins-good
 gst-plugins-ugly
-gtk-engine-murrine
-gtk-engines
 gvim
 gzip
 hplip
@@ -80,7 +78,6 @@ openssh
 p7zip
 pacman
 pacman-contrib
-pamac-classic
 patch
 pavucontrol
 pipewire
@@ -91,9 +88,6 @@ playerctl
 python-pyusb
 qalculate-gtk
 qbittorrent
-qt5-styleplugins
-qt5-svg
-qt6gtk2
 rhythmbox
 sed
 soundfont-fluid
@@ -110,7 +104,7 @@ unzip
 upower
 vim-plugins
 vlc
-vlc-plugin-fluidsynth-bin
+vlc-plugins-all
 wget
 which
 wmname
@@ -119,7 +113,6 @@ xdg-user-dirs-gtk
 xorg-server
 xorg-xinit
 xorg-xkill
-yay
 yt-dlp
 zip
 zsh
