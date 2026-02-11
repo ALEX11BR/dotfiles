@@ -13,6 +13,7 @@ profsrc=""
 psed=""
 qgset=""
 terml=""
+tmuxc=""
 viml="/etc/vimrc"
 vscopy=""
 xcont=""
@@ -90,6 +91,9 @@ while [ "$1" != "" ]; do
 		-t) # set TERMINAL
 			terml="$2"
 			shift
+			;;
+		-tc) # tmux copy config
+			tmuxc="yes"
 			;;
 		-v) # location of vimrc
 			viml="$2"
@@ -212,6 +216,13 @@ if [ "$picomc" != "" ]; then
 		install -Dm644 picom.conf "$HOME/.config/picom.conf"
 	else
 		sudo install -Dm644 picom.conf /etc/xdg/picom.conf
+	fi
+fi
+if [ "$tmuxc" != "" ]; then
+	if [ "$localonly" != "" ]; then
+		install -Dm644 tmux.conf "$HOME/.config/tmux/tmux.conf"
+	else
+		sudo install -Dm644 tmux.conf /etc/tmux.conf
 	fi
 fi
 if [ "$xprofin" != "" ]; then
