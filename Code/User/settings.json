@@ -15,5 +15,6 @@
     "workbench.editor.untitled.hint": "hidden",
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
+    "files.autoSave": "afterDelay",
     "telemetry.telemetryLevel": "off"
 }
